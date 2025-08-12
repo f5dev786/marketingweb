@@ -1,0 +1,123 @@
+import { FiHome, FiBell, FiLock } from "react-icons/fi";
+import { TbDeviceMobileVibration } from "react-icons/tb";
+import { IoMdCart } from "react-icons/io";
+import whyInovisense from "../../../public/assets/whyInovisense.jpg";
+import Image from "next/image";
+import "swiper/css/navigation";
+
+export default function WhyInovisenseSection() {
+  return (
+    <section className="bg-white pt-10 text-black pb-24 px-4 md:px-10 lg:px-20">
+      <div className="space-y-2 text-center">
+        <div className="inline-block border border-dashed border-blue-500 text-[14px] text-blue-400  px-4 py-2 rounded-full mt-8 tracking-wider bg-[#dbeefe]">
+          Why Inovisense?
+        </div>
+
+        <h2 className="text-[42px] font-medium leading-snug mb-6">
+          Lifetime Value, Limitless Potential <br />
+          <span className="text-blue-600">Monitoring</span> Redefined.
+        </h2>
+      </div>
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+        {/* Left Content */}
+        <div>
+          <div className="space-y-6">
+            {/* Item 1 */}
+            <div className="flex items-start gap-4 group">
+              <div className="bg-blue-100 text-blue-500 p-3 rounded-full transition-all duration-300 group-hover:bg-blue-600 group-hover:text-white group-hover:scale-110 transform">
+                <TbDeviceMobileVibration className="text-5xl transition-colors duration-300" />
+              </div>
+              <div>
+                <h4 className="font-medium text-lg hover:text-blue-400">
+                  Advanced Technology, Simpler Processes:
+                </h4>
+                <p className="text-gray-600 ">
+                  Inovisense combines cutting-edge monitoring technology with
+                  easy-to-use features, so you get the protection you need
+                  without the hassle.
+                </p>
+              </div>
+            </div>
+
+            {/* Item 2 */}
+            <div className="flex items-start gap-4 group hover:text-blue-400">
+              <div className="bg-blue-100 text-blue-500 p-3 rounded-full transition-all duration-300 group-hover:bg-blue-600 group-hover:text-white group-hover:scale-110 transform">
+                <FiHome className="text-5xl transition-colors duration-300" />
+              </div>
+              <div>
+                <h4 className="font-medium text-lg">
+                  Tailored Solutions for Diverse Needs:
+                </h4>
+                <p className="text-gray-600 ">
+                  From temperature monitoring in hospitals to air quality
+                  tracking in schools, Inovisense offers targeted solutions for
+                  industries with unique demands.
+                </p>
+              </div>
+            </div>
+
+            {/* Item 3 */}
+            <div className="flex items-start gap-4 group hover:text-blue-400">
+              <div className="bg-blue-100 text-blue-500 p-3 rounded-full transition-all duration-300 group-hover:bg-blue-600 group-hover:text-white group-hover:scale-110 transform">
+                <FiBell className="text-5xl transition-colors duration-300" />
+              </div>
+              <div>
+                <h4 className="font-medium text-lg">
+                  Real-Time Alerts That Matter:
+                </h4>
+                <p className="text-gray-600 ">
+                  Our alert system is designed to notify you only when it truly
+                  matters, so you can focus on what’s essential and avoid “alert
+                  fatigue.”
+                </p>
+              </div>
+            </div>
+
+            {/* Item 4 */}
+            <div className="flex items-start gap-4 group hover:text-blue-400">
+              <div className="bg-blue-100 text-blue-500 p-3 rounded-full transition-all duration-300 group-hover:bg-blue-600 group-hover:text-white group-hover:scale-110 transform">
+                <FiLock className="text-5xl transition-colors duration-300" />
+              </div>
+              <div>
+                <h4 className="font-medium text-lg">
+                  Always Protected, Always Compliant:
+                </h4>
+                <p className="text-gray-600 ">
+                  Stay compliant with regulatory standards effortlessly with
+                  automated reports and 24/7 data tracking.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Buttons */}
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-8">
+            <button className="group border border-gray-300 gap-2 px-4 py-2 rounded-md flex items-center hover:text-white hover:bg-black transition-colors">
+              Buy Now
+              <IoMdCart className="text-2xl group-hover:animate-bounce transition-all" />
+            </button>
+            <button className="bg-blue-500 text-white px-4 py-2 rounded-md  hover:bg-black ">
+              Request a Demo
+            </button>
+          </div>
+        </div>
+
+        {/* Right Image */}
+        <div className="flex justify-center">
+          <div className=" h-auto">
+            <Image
+              src={
+                "https://f5dev786siteimages.s3.us-east-1.amazonaws.com/14.jpg"
+              } // 👉 Replace with your actual image path
+              alt="Inovisense Monitoring Dashboard"
+              width={550}
+              height={600}
+              unoptimized
+              className="rounded-md shadow-lg"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

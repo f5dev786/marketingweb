@@ -109,7 +109,7 @@ export default function Header() {
               <ul className="bg-white">
                 <li>
                   <Link
-                    href="/products"
+                    href="/temperature-humidity-monitoring"
                     className="block px-4 py-2 border-b border-gray-200 hover:bg-black hover:text-white"
                   >
                     Temperature & Humidity Monitoring
@@ -117,7 +117,7 @@ export default function Header() {
                 </li>
                 <li>
                   <Link
-                    href="/products"
+                    href="/indoor-air-quality-monitoring"
                     className="block px-4 py-2 border-b border-gray-200 hover:bg-black hover:text-white"
                   >
                     Indoor Air Quality Monitoring
@@ -125,7 +125,7 @@ export default function Header() {
                 </li>
                 <li>
                   <Link
-                    href="/products"
+                    href="/liquid-level-monitoring"
                     className="block px-4 py-2 border-b border-gray-200 hover:bg-black hover:text-white"
                   >
                     Liquid Level Monitoring
@@ -262,17 +262,26 @@ export default function Header() {
             >
               <ul className="mb-2">
                 <li className="px-4 py-2 hover:bg-gray-100 border-t border-b border-gray-200">
-                  <Link href="/products" onClick={() => setMenuOpen(false)}>
+                  <Link
+                    href="/temperature-humidity-monitoring"
+                    onClick={() => setMenuOpen(false)}
+                  >
                     Temperature & Humidity
                   </Link>
                 </li>
                 <li className="px-4 py-2 hover:bg-gray-100 border-b border-gray-200">
-                  <Link href="/products" onClick={() => setMenuOpen(false)}>
+                  <Link
+                    href="/indoor-air-quality-monitoring"
+                    onClick={() => setMenuOpen(false)}
+                  >
                     Indoor Air Quality
                   </Link>
                 </li>
                 <li className="px-4 py-2 hover:bg-gray-100">
-                  <Link href="/products" onClick={() => setMenuOpen(false)}>
+                  <Link
+                    href="/liquid-level-monitoring"
+                    onClick={() => setMenuOpen(false)}
+                  >
                     Liquid Level
                   </Link>
                 </li>

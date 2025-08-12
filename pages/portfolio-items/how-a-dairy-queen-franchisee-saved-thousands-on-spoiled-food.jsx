@@ -3,6 +3,7 @@ import DQ from "../../public/assets/dq.png";
 import DQS from "../../public/assets/DQS.png";
 import caseStudy from "../../public/assets/caseStudy.png";
 import Head from "next/head";
+import Link from "next/link";
 export default function CashStudy() {
   return (
     <>
@@ -144,9 +145,11 @@ export default function CashStudy() {
                   <button className="bg-blue-600 hover:bg-black text-white px-6 py-3 rounded-md font-semibold">
                     Request a Demo
                   </button>
-                  <button className="border border-gray-300 hover:bg-black hover:text-white px-6 py-3 rounded-md font-semibold text-gray-800">
-                    Contact Us
-                  </button>
+                  <Link href="/contact-us">
+                    <button className="border border-gray-300 hover:bg-black hover:text-white px-6 py-3 rounded-md font-semibold text-gray-800">
+                      Contact Us
+                    </button>
+                  </Link>
                 </div>
               </div>
 

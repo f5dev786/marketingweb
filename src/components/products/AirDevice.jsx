@@ -3,8 +3,9 @@ import React from "react";
 import { IoMdCart } from "react-icons/io";
 import { FaArrowCircleRight, FaCheckCircle } from "react-icons/fa";
 import tempMonitoring from "../../../public/assets/TempMonitaring.jpg";
+import Link from "next/link";
 
-function TempDevice() {
+function AirDevice() {
   const listItem = (text, color) => (
     <li className="flex items-center gap-2">
       {color ? (
@@ -24,7 +25,9 @@ function TempDevice() {
           {/* LEFT IMAGE */}
           <div className="flex justify-center">
             <Image
-              src={tempMonitoring}
+              src={
+                "https://f5dev786siteimages.s3.us-east-1.amazonaws.com/16.jpg"
+              }
               alt="Temperature Monitoring Device"
               className="rounded-lg shadow-lg"
               width={800}
@@ -36,43 +39,41 @@ function TempDevice() {
           {/* RIGHT CONTENT */}
           <div>
             <h2 className="text-[42px] font-medium text-slate-900 mb-4 leading-[1.2]">
-              Temperature & Humidity Monitoring
+              Indoor Air Quality Monitoring
             </h2>
-            <p className="text-slate-600 text-[20px] mb-6">
-              Optimized for grocery stores, restaurants, and food distribution
-              centers.
-            </p>
 
             {/* OVERVIEW */}
             <h3 className="text-lg font-semibold text-slate-800 mb-2">
               Overview:
             </h3>
             <p className="text-slate-600 mb-6">
-              Inovisense’s environmental monitoring solutions help you maintain
-              consistent, safe conditions across facilities, keeping perishable
-              goods fresh and protected.
+              Protect indoor spaces by actively monitoring air quality, ensuring
+              the well-being of students, staff, and visitors in high-traffic
+              environments.
             </p>
 
             {/* FEATURES */}
             <h4 className="font-semibold text-slate-800 mb-2">Features:</h4>
             <ul className="space-y-2 mb-6">
               {listItem(
-                "Real-time monitoring of temperature, humidity, and air quality."
+                "Real-time tracking of CO2, humidity, and particulate levels."
               )}
+              {listItem("Data-driven insights for improved air circulation.")}
               {listItem(
-                "Smart, automated alerts for quick response to any deviations."
+                "Remote access to monitor and manage air quality efficiently."
               )}
-              {listItem("Accessible anywhere via our cloud-based dashboard.")}
             </ul>
 
             {/* BENEFITS */}
             <h4 className="font-semibold text-slate-800 mb-2">Benefits:</h4>
             <ul className="space-y-2 mb-8">
-              {listItem("Avoid product loss and reduce costs.")}
               {listItem(
-                "Ensure a safe environment that meets regulatory standards."
+                "Promote healthier environments for learning and working."
               )}
-              {listItem("Minimize waste and optimize storage.")}
+              {listItem("Reduce energy costs through optimized HVAC use.")}
+              {listItem(
+                "Meet indoor air quality standards and ensure compliance."
+              )}
             </ul>
 
             {/* BUTTONS */}
@@ -80,10 +81,11 @@ function TempDevice() {
               <button className="bg-blue-500 text-white px-5 py-2 rounded-md hover:bg-black transition">
                 Request a Demo
               </button>
-              <button className="border border-gray-300 px-5 py-2 rounded-md flex items-center gap-2 hover:bg-black hover:text-white transition">
-                Buy Now
-                <IoMdCart className="text-xl" />
-              </button>
+              <Link href="/contact-us">
+                <button className="border border-gray-300 px-5 py-2 rounded-md flex items-center gap-2 hover:bg-black hover:text-white transition">
+                  Contact Us
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -97,26 +99,45 @@ function TempDevice() {
                 Key Features
               </p>
               <h1 className="text-[42px] font-medium mt-3 leading-[1.2]">
-                <span className="text-blue-500">IS-211</span> Temperature &
-                Humidity Sensor
+                <span className="text-blue-500">IQ-411</span> Indoor Ambience
+                Monitoring Sensor
               </h1>
               <p className="mt-3 ">
-                IS-211 is a Long Range LoRaWAN Sensor. It includes a built-in
-                Temperature & Humidity sensor and has an external sensor
-                connector to connect to an external Temperature Sensor.
+                IQ-411 is a compact indoor ambience monitoring sensor for
+                measurement of temperature, humidity and CO2. These data will be
+                shown on the E-ink screen in real-time, which allow to quantify
+                the indoor environment and comfort. IQ-411 is widely used for
+                office, store, classroom, hospital, etc.
               </p>
 
               <h2 className="mt-6 text-xl text-blue-500">Features:</h2>
               <ul className="space-y-2 mt-3 ">
-                {listItem("Datalog feature", "text-white")}
-                {listItem("Tri-color LED to indicate status", "text-white")}
-                {listItem("LoRaWAN v1.0.3 Class A protocol", "text-white")}
                 {listItem(
-                  "Built-in Temperature & Humidity sensor",
+                  "Integrated with multiple sensors like humidity, temperature and CO2",
                   "text-white"
                 )}
                 {listItem(
-                  "Built-in 2400mAh battery for more than 10 years of use",
+                  "Visual data and clear emoticon to understand the comfort level easily via E-ink screen",
+                  "text-white"
+                )}
+                {listItem(
+                  "Smart hibernate mode schedulely to save battery power",
+                  "text-white"
+                )}
+                {listItem(
+                  "Equipped with traffic light indicator to indicate multi-level CO2 threshold alarms",
+                  "text-white"
+                )}
+                {listItem(
+                  "More than 3 years work without replacing batteries",
+                  "text-white"
+                )}
+                {listItem(
+                  "Store locally 560 historical records and support retransmission to prevent data loss",
+                  "text-white"
+                )}
+                {listItem(
+                  "Compliant with standard LoRaWAN® gateways and network servers",
                   "text-white"
                 )}
               </ul>
@@ -128,28 +149,20 @@ function TempDevice() {
               <table className="mt-2 w-full border border-gray-500 ">
                 <tbody>
                   <tr>
-                    <td className="border border-gray-500 p-3">Resolution</td>
-                    <td className="border border-gray-500 p-3">0.01 ℃</td>
+                    <td className="border border-gray-500 p-3">
+                      Operating Range
+                    </td>
+                    <td className="border border-gray-500 p-3">-20°C – 60°C</td>
                   </tr>
                   <tr>
                     <td className="border border-gray-500 p-3">
                       Accuracy Tolerance
                     </td>
-                    <td className="border border-gray-500 p-3">Typ ±0.3 ℃</td>
+                    <td className="border border-gray-500 p-3"> ±0.2 ℃</td>
                   </tr>
                   <tr>
-                    <td className="border border-gray-500 p-3">
-                      Long Term Drift
-                    </td>
-                    <td className="border border-gray-500 p-3">
-                      &lt; 0.02 ℃/yr
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-500 p-3">
-                      Operating Range
-                    </td>
-                    <td className="border border-gray-500 p-3">-40 ~ 85 ℃</td>
+                    <td className="border border-gray-500 p-3">Resolution</td>
+                    <td className="border border-gray-500 p-3">0.01 ℃/yr</td>
                   </tr>
                 </tbody>
               </table>
@@ -161,28 +174,20 @@ function TempDevice() {
               <table className="mt-2 w-full border border-gray-500">
                 <tbody>
                   <tr>
-                    <td className="border border-gray-500 p-3">Resolution</td>
-                    <td className="border border-gray-500 p-3">0.04 %RH</td>
+                    <td className="border border-gray-500 p-3">
+                      Operating Range{" "}
+                    </td>
+                    <td className="border border-gray-500 p-3">0% – 100% RH</td>
                   </tr>
                   <tr>
                     <td className="border border-gray-500 p-3">
                       Accuracy Tolerance
                     </td>
-                    <td className="border border-gray-500 p-3">Typ ±3 %RH</td>
+                    <td className="border border-gray-500 p-3"> ±2 %RH</td>
                   </tr>
                   <tr>
-                    <td className="border border-gray-500 p-3">
-                      Long Term Drift
-                    </td>
-                    <td className="border border-gray-500 p-3">
-                      &lt; 0.25 %RH/yr
-                    </td>
-                  </tr>
-                  <tr>
-                    <td className="border border-gray-500 p-3">
-                      Operating Range
-                    </td>
-                    <td className="border border-gray-500 p-3">0 ~ 96 %RH</td>
+                    <td className="border border-gray-500 p-3">Resolution</td>
+                    <td className="border border-gray-500 p-3">0.5% RH</td>
                   </tr>
                 </tbody>
               </table>
@@ -192,10 +197,11 @@ function TempDevice() {
                 <button className="bg-blue-600 px-5 py-2 rounded hover:bg-gray-700">
                   Request a Demo
                 </button>
-                <button className="border border-gray-400 px-5 py-2 rounded flex items-center gap-2 bg-white hover:bg-gray-700  hover:text-white  text-black transition">
-                  Buy Now
-                  <IoMdCart />
-                </button>
+                <Link href="/contact-us">
+                  <button className="border bg-white text-black  px-5 py-2 rounded-md flex items-center gap-2 hover:bg-gray-700 hover:text-white transition">
+                    Contact Us
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -204,7 +210,7 @@ function TempDevice() {
           <div className="flex justify-center items-start">
             <Image
               src={
-                "https://f5dev786siteimages.s3.us-east-1.amazonaws.com/15.jpg"
+                "https://f5dev786siteimages.s3.us-east-1.amazonaws.com/16.jpg"
               }
               alt="Sensor device"
               className="rounded-lg shadow-lg"
@@ -219,4 +225,4 @@ function TempDevice() {
   );
 }
 
-export default TempDevice;
+export default AirDevice;

@@ -7,12 +7,15 @@ import { useState } from "react";
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import logo from "../../public/assets/logo.png";
+import { useRouter } from "next/router";
 
 export default function Header() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [productMenuOpen, setProductMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+
+  const router = useRouter();
 
   return (
     <header className="w-full sticky top-0 z-50 bg-white shadow text-gray-900">
@@ -88,10 +91,13 @@ export default function Header() {
 
           <div className="relative group text-[18px]">
             {/* Main trigger */}
-            <div className="flex items-center cursor-pointer font-medium px-2 py-1">
+            <div
+              className="flex items-center cursor-pointer font-medium px-2 py-1"
+              onClick={() => router.push("/products")}
+            >
               <span
                 className={`flex items-center ${
-                  pathname === "/product" ? "text-blue-600 font-semibold" : ""
+                  pathname === "/products" ? "text-blue-600 font-semibold" : ""
                 }`}
               >
                 Products <FiChevronDown className="ml-1" />
@@ -103,7 +109,7 @@ export default function Header() {
               <ul className="bg-white">
                 <li>
                   <Link
-                    href="/product"
+                    href="/products"
                     className="block px-4 py-2 border-b border-gray-200 hover:bg-black hover:text-white"
                   >
                     Temperature & Humidity Monitoring
@@ -111,7 +117,7 @@ export default function Header() {
                 </li>
                 <li>
                   <Link
-                    href="/product"
+                    href="/products"
                     className="block px-4 py-2 border-b border-gray-200 hover:bg-black hover:text-white"
                   >
                     Indoor Air Quality Monitoring
@@ -119,7 +125,7 @@ export default function Header() {
                 </li>
                 <li>
                   <Link
-                    href="/product"
+                    href="/products"
                     className="block px-4 py-2 border-b border-gray-200 hover:bg-black hover:text-white"
                   >
                     Liquid Level Monitoring
@@ -256,17 +262,17 @@ export default function Header() {
             >
               <ul className="mb-2">
                 <li className="px-4 py-2 hover:bg-gray-100 border-t border-b border-gray-200">
-                  <Link href="/product" onClick={() => setMenuOpen(false)}>
+                  <Link href="/products" onClick={() => setMenuOpen(false)}>
                     Temperature & Humidity
                   </Link>
                 </li>
                 <li className="px-4 py-2 hover:bg-gray-100 border-b border-gray-200">
-                  <Link href="/product" onClick={() => setMenuOpen(false)}>
+                  <Link href="/products" onClick={() => setMenuOpen(false)}>
                     Indoor Air Quality
                   </Link>
                 </li>
                 <li className="px-4 py-2 hover:bg-gray-100">
-                  <Link href="/product" onClick={() => setMenuOpen(false)}>
+                  <Link href="/products" onClick={() => setMenuOpen(false)}>
                     Liquid Level
                   </Link>
                 </li>

@@ -165,7 +165,7 @@ export default function ContactPage() {
                   <input
                     type="number"
                     name="numberOfRefrigerators"
-                    placeholder="  How many refrigerators or freezers does your business use?*"
+                    placeholder="How many sensors are currently in use by your business?*"
                     value={formData.numberOfRefrigerators}
                     onChange={handleChange}
                     className="w-full border px-4 py-2 rounded"

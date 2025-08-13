@@ -28,7 +28,7 @@ export default function Temperature() {
           <StepCard
             icon={<FaSnowflake />}
             stepNumber="02."
-            title="in the wall or desk"
+            title="Place Your Sensor On The Wall Or Desk"
           />
           <StepCard
             icon={<FaToggleOn />}

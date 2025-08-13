@@ -2,14 +2,15 @@
 import Image from "next/image";
 import { FaCheckCircle, FaPhoneAlt } from "react-icons/fa";
 
-import monitaring1 from "../../../public/assets/monitearing1.jpg";
-import monitaring2 from "../../../public/assets/monitaring2.jpg";
+import { RxCross2 } from "react-icons/rx";
+
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export default function MonitoringDashboard() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [fade, setFade] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const images = [
     "https://f5dev786siteimages.s3.us-east-1.amazonaws.com/12.jpg",
@@ -72,7 +73,10 @@ export default function MonitoringDashboard() {
 
             {/* Buttons */}
             <div className="flex space-x-4">
-              <button className="px-6 py-3 text-sm  bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
+              <button
+                className="bg-blue-500 text-white px-4 py-3 hover:bg-gray-800 rounded-md"
+                onClick={() => setIsOpen(true)}
+              >
                 Request a Demo
               </button>
               <Link href="/contact-us">
@@ -141,6 +145,27 @@ export default function MonitoringDashboard() {
           `}</style>
         </div>
       </div>
+      {isOpen && (
+        <div className="fixed inset-0  shadow-xl scrollbar-hide flex justify-center items-center z-50">
+          <div className="!bg-white  rounded-xl shadow-lg w-[90%] max-w-4xl relative">
+            {/* Close Button */}
+            <button
+              onClick={() => setIsOpen(false)}
+              className="absolute top-3 right-3 text-gray-600 hover:text-black"
+            >
+              <RxCross2 size={24} />
+            </button>
+
+            {/* Iframe */}
+            <iframe
+              src="https://calendly.com/f5dev786/30min?embed_domain=inovisense.com"
+              className="w-full rounded-xl h-[500px]   scrollbar-hide !bg-transparent"
+              frameBorder="0"
+              title="Calendly"
+            ></iframe>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

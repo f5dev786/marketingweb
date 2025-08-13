@@ -13,7 +13,7 @@ export default function Product() {
       <TempDevice />
       <AirDevice />
       <LiquidDevice />
-      <InstallationSteps />
+      {/* <InstallationSteps /> */}
     </div>
   );
 }

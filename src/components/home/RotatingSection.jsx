@@ -1,8 +1,11 @@
 // src/components/RotatingSection.jsx
 import Image from "next/image";
-import main from "../../../public/assets/main.jpg";
+import Link from "next/link";
+import { useState } from "react";
+import { RxCross2 } from "react-icons/rx";
 
 export default function RotatingSection() {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <section className=" bg-gradient-to-r from-[#c2e4ff] to-[#f5faff] shadow-inner text-black from-blue-100 to-white p-8 py-28 flex flex-col md:flex-row items-center justify-center gap-8 text-black ">
       {/* Left Side (Static Content) */}
@@ -67,12 +70,17 @@ export default function RotatingSection() {
             }}
           >
             {/* https://calendly.com/f5dev786/30min?embed_domain=inovisense.com */}
-            <button className="bg-blue-500 text-white px-4 py-3 hover:bg-gray-800 rounded-md">
+            <button
+              className="bg-blue-500 text-white px-4 py-3 hover:bg-gray-800 rounded-md"
+              onClick={() => setIsOpen(true)}
+            >
               Request a Demo
             </button>
-            <button className="bg-gray-800  hover:bg-blue-500 text-white px-4 py-3 rounded-md">
-              Subscribe Now for Monitoring
-            </button>
+            <Link href={"/products"}>
+              <button className="bg-gray-800  hover:bg-blue-500 text-white px-4 py-3 rounded-md">
+             Discover our Sensors
+              </button>
+            </Link>
           </div>
           <div className="mt-4">
             <div className="flex items-center space-x-1 mt-6">
@@ -116,7 +124,6 @@ export default function RotatingSection() {
               width={577}
               height={577}
               unoptimized
-              
               alt="Rotating AI Illustration"
               className="rounded-lg shadow-lg w-full h-auto"
               priority
@@ -124,6 +131,28 @@ export default function RotatingSection() {
           </div>
         </div>
       </div>
+
+      {isOpen && (
+        <div className="fixed inset-0  shadow-xl scrollbar-hide flex justify-center items-center z-50">
+          <div className="!bg-white  rounded-xl shadow-lg w-[90%] max-w-4xl relative">
+            {/* Close Button */}
+            <button
+              onClick={() => setIsOpen(false)}
+              className="absolute top-3 right-3 text-gray-600 hover:text-black"
+            >
+              <RxCross2 size={24} />
+            </button>
+
+            {/* Iframe */}
+            <iframe
+              src="https://calendly.com/f5dev786/30min?embed_domain=inovisense.com"
+              className="w-full rounded-xl h-[500px]   scrollbar-hide !bg-transparent"
+              frameBorder="0"
+              title="Calendly"
+            ></iframe>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

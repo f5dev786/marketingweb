@@ -27,7 +27,9 @@ export default function Header() {
         >
           Call us <span className="font-medium">848 313 0582</span>{" "}
           <span className="mx-2  hidden md:inline">|</span>{" "}
-          <span className=" hidden md:inline">support@inovisense.com</span>
+          <a href="mailto:support@inovisense.com">
+            <span className=" hidden md:inline hover:text-blue-500">support@inovisense.com</span>
+          </a>
         </div>
         <div
           className="hidden md:flex space-x-4 items-center"

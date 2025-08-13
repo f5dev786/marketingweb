@@ -1,11 +1,14 @@
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { IoMdCart } from "react-icons/io";
 import { FaArrowCircleRight, FaCheckCircle } from "react-icons/fa";
 import tempMonitoring from "../../../public/assets/TempMonitaring.jpg";
 import Link from "next/link";
+import { RxCross2 } from "react-icons/rx";
 
 function AirDevice() {
+  const [isOpen, setIsOpen] = useState(false);
+
   const listItem = (text, color) => (
     <li className="flex items-center gap-2">
       {color ? (
@@ -78,7 +81,10 @@ function AirDevice() {
 
             {/* BUTTONS */}
             <div className="flex flex-wrap gap-4">
-              <button className="bg-blue-500 text-white px-5 py-2 rounded-md hover:bg-black transition">
+              <button
+                className="bg-blue-500 text-white px-5 py-2 rounded-md hover:bg-black transition"
+                onClick={() => setIsOpen(true)}
+              >
                 Request a Demo
               </button>
               <Link href="/contact-us">
@@ -194,7 +200,10 @@ function AirDevice() {
 
               {/* Buttons */}
               <div className="flex gap-4 mt-6">
-                <button className="bg-blue-600 px-5 py-2 rounded hover:bg-gray-700">
+                <button
+                  className="bg-blue-500 text-white px-5 py-2 rounded-md hover:bg-black transition"
+                  onClick={() => setIsOpen(true)}
+                >
                   Request a Demo
                 </button>
                 <Link href="/contact-us">
@@ -221,6 +230,28 @@ function AirDevice() {
           </div>
         </div>
       </section>
+
+      {isOpen && (
+        <div className="fixed inset-0  shadow-xl scrollbar-hide flex justify-center items-center z-50">
+          <div className="!bg-white  rounded-xl shadow-lg w-[90%] max-w-4xl relative">
+            {/* Close Button */}
+            <button
+              onClick={() => setIsOpen(false)}
+              className="absolute top-3 right-3 text-gray-600 hover:text-black"
+            >
+              <RxCross2 size={24} />
+            </button>
+
+            {/* Iframe */}
+            <iframe
+              src="https://calendly.com/f5dev786/30min?embed_domain=inovisense.com"
+              className="w-full rounded-xl h-[500px]   scrollbar-hide !bg-transparent"
+              frameBorder="0"
+              title="Calendly"
+            ></iframe>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

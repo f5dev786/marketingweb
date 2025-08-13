@@ -1,11 +1,16 @@
 import { FiHome, FiBell, FiLock } from "react-icons/fi";
 import { TbDeviceMobileVibration } from "react-icons/tb";
 import { IoMdCart } from "react-icons/io";
-import whyInovisense from "../../../public/assets/whyInovisense.jpg";
+
 import Image from "next/image";
 import "swiper/css/navigation";
+import { useState } from "react";
+import { RxCross2 } from "react-icons/rx";
+import Link from "next/link";
 
 export default function WhyInovisenseSection() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <section className="bg-white pt-10 text-black pb-24 px-4 md:px-10 lg:px-20">
       <div className="space-y-2 text-center">
@@ -92,11 +97,16 @@ export default function WhyInovisenseSection() {
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-8">
-            <button className="group border border-gray-300 gap-2 px-4 py-2 rounded-md flex items-center hover:text-white hover:bg-black transition-colors">
-              Buy Now
-              <IoMdCart className="text-2xl group-hover:animate-bounce transition-all" />
-            </button>
-            <button className="bg-blue-500 text-white px-4 py-2 rounded-md  hover:bg-black ">
+            <Link href={"https://app.inovisense.com/subscription"} replace>
+              <button className="group border border-gray-300 gap-2 px-4 py-2 rounded-md flex items-center hover:text-white hover:bg-black transition-colors">
+                Buy Now
+                <IoMdCart className="text-2xl group-hover:animate-bounce transition-all" />
+              </button>
+            </Link>
+            <button
+              className="bg-blue-500 text-white px-4 py-3 hover:bg-gray-800 rounded-md"
+              onClick={() => setIsOpen(true)}
+            >
               Request a Demo
             </button>
           </div>
@@ -118,6 +128,27 @@ export default function WhyInovisenseSection() {
           </div>
         </div>
       </div>
+      {isOpen && (
+        <div className="fixed inset-0  shadow-xl scrollbar-hide flex justify-center items-center z-50">
+          <div className="!bg-white  rounded-xl shadow-lg w-[90%] max-w-4xl relative">
+            {/* Close Button */}
+            <button
+              onClick={() => setIsOpen(false)}
+              className="absolute top-3 right-3 text-gray-600 hover:text-black"
+            >
+              <RxCross2 size={24} />
+            </button>
+
+            {/* Iframe */}
+            <iframe
+              src="https://calendly.com/f5dev786/30min?embed_domain=inovisense.com"
+              className="w-full rounded-xl h-[500px]   scrollbar-hide !bg-transparent"
+              frameBorder="0"
+              title="Calendly"
+            ></iframe>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

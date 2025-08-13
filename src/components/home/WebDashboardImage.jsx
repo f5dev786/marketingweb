@@ -2,13 +2,16 @@
 
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { FaArrowCircleRight, FaPhoneAlt } from "react-icons/fa";
 import webDashboard from "../../../public/assets/webDashboard.png"; // update your path if needed
 import Link from "next/link";
+import { RxCross2 } from "react-icons/rx";
 
 function WebDashboardImage() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
       <div className="bg-white pt-24 text-black">
@@ -63,7 +66,10 @@ function WebDashboardImage() {
 
           {/* Buttons */}
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
-            <button className="bg-blue-500 text-white text-sm  px-6 py-3 rounded-md shadow hover:bg-black cursor-pointer transition ">
+            <button
+              className="bg-blue-500 text-white px-4 py-3 hover:bg-gray-800 rounded-md"
+              onClick={() => setIsOpen(true)}
+            >
               Request a Demo
             </button>
             <Link href="/contact-us">
@@ -74,6 +80,27 @@ function WebDashboardImage() {
             </Link>
           </div>
         </div>
+        {isOpen && (
+          <div className="fixed inset-0  shadow-xl scrollbar-hide flex justify-center items-center z-50">
+            <div className="!bg-white  rounded-xl shadow-lg w-[90%] max-w-4xl relative">
+              {/* Close Button */}
+              <button
+                onClick={() => setIsOpen(false)}
+                className="absolute top-3 right-3 text-gray-600 hover:text-black"
+              >
+                <RxCross2 size={24} />
+              </button>
+
+              {/* Iframe */}
+              <iframe
+                src="https://calendly.com/f5dev786/30min?embed_domain=inovisense.com"
+                className="w-full rounded-xl h-[500px]   scrollbar-hide !bg-transparent"
+                frameBorder="0"
+                title="Calendly"
+              ></iframe>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );

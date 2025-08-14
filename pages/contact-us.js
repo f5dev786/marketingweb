@@ -150,7 +150,7 @@ export default function ContactPage() {
                       placeholder="Full Name*"
                       value={formData.fullName}
                       onChange={handleChange}
-                      className="w-full border px-4 py-2 rounded focus:!border-blue-500 focus:ring-blue-500"
+                      className="w-full border px-4 py-2 rounded focus:!border-blue-500 focus:ring-blue-500 focus:outline-none"
                     />
                     {errors.fullName && (
                       <p className="text-red-500 text-sm mt-1">
@@ -166,7 +166,7 @@ export default function ContactPage() {
                     placeholder="How many sensors are currently in use by your business?*"
                     value={formData.numberOfRefrigerators}
                     onChange={handleChange}
-                    className="w-full border px-4 py-2 rounded focus:border-blue-500 focus:ring-blue-500"
+                    className="w-full border px-4 py-2 rounded focus:border-blue-500  focus:outline-none focus:ring-blue-500"
                   />
                   {errors.numberOfRefrigerators && (
                     <p className="text-red-500 text-sm mt-1">
@@ -182,7 +182,7 @@ export default function ContactPage() {
                       placeholder="Email Address*"
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full border px-4 py-2 rounded focus:border-blue-500 focus:ring-blue-500"
+                      className="w-full border px-4 py-2 rounded focus:border-blue-500 focus:ring-blue-500 focus:outline-none"
                     />
                     {errors.email && (
                       <p className="text-red-500 text-sm mt-1">
@@ -197,7 +197,7 @@ export default function ContactPage() {
                       placeholder="Phone Number*"
                       value={formData.phoneNumber}
                       onChange={handleChange}
-                      className="w-full border px-4 py-2 rounded focus:border-blue-500 focus:ring-blue-500"
+                      className="w-full border px-4 py-2 rounded focus:border-blue-500 focus:ring-blue-500 focus:outline-none"
                     />
                     {errors.phoneNumber && (
                       <p className="text-red-500 text-sm mt-1">
@@ -212,7 +212,7 @@ export default function ContactPage() {
                     placeholder="Any specific features you're interested in?"
                     value={formData.note}
                     onChange={handleChange}
-                    className="w-full border px-4 py-2 rounded h-24 focus:border-blue-500 focus:ring-blue-500"
+                    className="w-full border px-4 py-2 rounded h-24 focus:border-blue-500 focus:ring-blue-500 focus:outline-none"
                   />
                   {errors.note && (
                     <p className="text-red-500 text-sm mt-1">{errors.note}</p>

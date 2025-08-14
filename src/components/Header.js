@@ -114,7 +114,7 @@ export default function Header() {
                 <li>
                   <Link
                     href="/temperature-humidity-monitoring"
-                    className="block px-4 py-2 border-b border-gray-200 hover:bg-black hover:text-white"
+                    className="block px-4 py-3 border-b border-gray-200 hover:bg-black hover:text-white"
                   >
                     Temperature & Humidity Monitoring
                   </Link>
@@ -122,7 +122,7 @@ export default function Header() {
                 <li>
                   <Link
                     href="/indoor-air-quality-monitoring"
-                    className="block px-4 py-2 border-b border-gray-200 hover:bg-black hover:text-white"
+                    className="block px-4 py-3 border-b border-gray-200 hover:bg-black hover:text-white"
                   >
                     Indoor Air Quality Monitoring
                   </Link>
@@ -130,7 +130,7 @@ export default function Header() {
                 <li>
                   <Link
                     href="/liquid-level-monitoring"
-                    className="block px-4 py-2 border-b border-gray-200 hover:bg-black hover:text-white"
+                    className="block px-4 py-3 border-b border-gray-200 hover:bg-black hover:text-white"
                   >
                     Liquid Level Monitoring
                   </Link>

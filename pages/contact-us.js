@@ -93,9 +93,7 @@ export default function ContactPage() {
               <FiPhone className="text-blue-500 group-hover:!text-white  text-4xl group-hover:animate-bounce " />
             </div>
             <div>
-              <p className=" hover:text-blue-400  text-lg">
-                848 313 0582
-              </p>
+              <p className=" hover:text-blue-400  text-lg">848 313 0582</p>
               <p className="text-sm text-gray-500">Call us</p>
             </div>
           </div>
@@ -152,7 +150,7 @@ export default function ContactPage() {
                       placeholder="Full Name*"
                       value={formData.fullName}
                       onChange={handleChange}
-                      className="w-full border px-4 py-2 rounded"
+                      className="w-full border px-4 py-2 rounded focus:!border-blue-500 focus:ring-blue-500"
                     />
                     {errors.fullName && (
                       <p className="text-red-500 text-sm mt-1">
@@ -168,7 +166,7 @@ export default function ContactPage() {
                     placeholder="How many sensors are currently in use by your business?*"
                     value={formData.numberOfRefrigerators}
                     onChange={handleChange}
-                    className="w-full border px-4 py-2 rounded"
+                    className="w-full border px-4 py-2 rounded focus:border-blue-500 focus:ring-blue-500"
                   />
                   {errors.numberOfRefrigerators && (
                     <p className="text-red-500 text-sm mt-1">
@@ -184,7 +182,7 @@ export default function ContactPage() {
                       placeholder="Email Address*"
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full border px-4 py-2 rounded"
+                      className="w-full border px-4 py-2 rounded focus:border-blue-500 focus:ring-blue-500"
                     />
                     {errors.email && (
                       <p className="text-red-500 text-sm mt-1">
@@ -199,7 +197,7 @@ export default function ContactPage() {
                       placeholder="Phone Number*"
                       value={formData.phoneNumber}
                       onChange={handleChange}
-                      className="w-full border px-4 py-2 rounded"
+                      className="w-full border px-4 py-2 rounded focus:border-blue-500 focus:ring-blue-500"
                     />
                     {errors.phoneNumber && (
                       <p className="text-red-500 text-sm mt-1">
@@ -214,7 +212,7 @@ export default function ContactPage() {
                     placeholder="Any specific features you're interested in?"
                     value={formData.note}
                     onChange={handleChange}
-                    className="w-full border px-4 py-2 rounded h-24"
+                    className="w-full border px-4 py-2 rounded h-24 focus:border-blue-500 focus:ring-blue-500"
                   />
                   {errors.note && (
                     <p className="text-red-500 text-sm mt-1">{errors.note}</p>

@@ -28,7 +28,9 @@ export default function Header() {
           Call us <span className="font-medium">848 313 0582</span>{" "}
           <span className="mx-2  hidden md:inline">|</span>{" "}
           <a href="mailto:support@inovisense.com">
-            <span className=" hidden md:inline hover:text-blue-500">support@inovisense.com</span>
+            <span className=" hidden md:inline hover:text-blue-500">
+              support@inovisense.com
+            </span>
           </a>
         </div>
         <div
@@ -44,7 +46,7 @@ export default function Header() {
             href="https://www.facebook.com/people/Inovisense/61574108742567/"
             target="_blank"
           >
-            <FaFacebookF className="cursor-pointer hover:text-blue-600" />
+            <FaFacebookF className="cursor-pointer hover:text-blue-500" />
           </Link>
           <Link
             href="https://www.linkedin.com/company/inovisense/posts/?feedView=all"
@@ -82,9 +84,9 @@ export default function Header() {
           <Link
             onClick={() => setActiveSection("")}
             href="/"
-            className={`font-medium ${
+            className={`font-medium hover:text-blue-500 ${
               (!activeSection ? pathname === "/" : activeSection === "/")
-                ? "text-blue-600 font-semibold"
+                ? "text-blue-500 font-semibold"
                 : ""
             }`}
           >
@@ -94,12 +96,12 @@ export default function Header() {
           <div className="relative group text-[18px]">
             {/* Main trigger */}
             <div
-              className="flex items-center cursor-pointer font-medium px-2 py-1"
+              className="flex items-center cursor-pointer font-medium hover:text-blue-500 px-2 py-1"
               onClick={() => router.push("/products")}
             >
               <span
                 className={`flex items-center ${
-                  pathname === "/products" ? "text-blue-600 font-semibold" : ""
+                  pathname === "/products" ? "text-blue-500 font-semibold" : ""
                 }`}
               >
                 Products <FiChevronDown className="ml-1" />
@@ -141,9 +143,9 @@ export default function Header() {
             href="/#why-choose"
             replace
             onClick={() => setActiveSection("why-choose")}
-            className={`font-medium ${
+            className={`font-medium hover:text-blue-500 ${
               activeSection === "why-choose"
-                ? "text-blue-600 font-semibold"
+                ? "text-blue-500 font-semibold"
                 : ""
             }`}
           >
@@ -153,9 +155,9 @@ export default function Header() {
             href="/#web-dashboard"
             replace
             onClick={() => setActiveSection("web-dashboard")}
-            className={`font-medium ${
+            className={`font-medium hover:text-blue-500 ${
               activeSection === "web-dashboard"
-                ? "text-blue-600 font-semibold"
+                ? "text-blue-500 font-semibold"
                 : ""
             }`}
           >
@@ -165,8 +167,8 @@ export default function Header() {
             href="/#solutions"
             replace
             onClick={() => setActiveSection("solutions")}
-            className={`font-medium ${
-              activeSection === "solutions" ? "text-blue-600 font-semibold" : ""
+            className={`font-medium hover:text-blue-500 ${
+              activeSection === "solutions" ? "text-blue-500 font-semibold" : ""
             }`}
           >
             Solutions
@@ -178,10 +180,10 @@ export default function Header() {
                 "/portfolio-items/how-a-dairy-queen-franchisee-saved-thousands-on-spoiled-food"
               )
             }
-            className={`font-medium ${
+            className={`font-medium hover:text-blue-500 ${
               activeSection ===
               "/portfolio-items/how-a-dairy-queen-franchisee-saved-thousands-on-spoiled-food"
-                ? "text-blue-600 font-semibold"
+                ? "text-blue-500 font-semibold"
                 : ""
             }`}
           >

@@ -15,39 +15,54 @@ export default function TermsOfServiceGate({
 
   async function getClientIP() {
     try {
-      // Using ipify API (free for basic use)
-      const response = await fetch("https://api.ipify.org?format=json");
-      const data = await response.json();
-      return data.ip; // IP address as a string
-    } catch (error) {
-      console.error("Error getting IP:", error);
+      const res = await fetch("/api/get-client-ip");
+      const data = await res.json();
+      console.log(data);
+      return data.ip;
+    } catch (err) {
+      console.error("Error getting IP:", err);
       return null;
     }
   }
 
   // Call your API with IP
   async function sendDataWithIP(formData) {
+    // 1️⃣ Get client IP first
     const ip = await getClientIP();
 
+    // 2️⃣ Prepare payload and send to insert API
     const payload = {
       ...formData,
-      ipAddress: ip,
+      ip,
       id: "-",
     };
 
-    const response = await fetch(
+    const insertResponse = await fetch(
       "https://octopus-app-9gza9.ondigitalocean.app/api/UserAgreement/insert",
       {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       }
     );
 
-    const result = await response.json();
-    console.log("API Response:", result);
+    if (!insertResponse.ok) {
+      throw new Error("Failed to insert user agreement");
+    }
+
+    // 3️⃣ Get payment link only after insert API success
+    const paymentResponse = await fetch(
+      `https://octopus-app-9gza9.ondigitalocean.app/api/Paymentlinks/getpaymentlinkbyemail?email=${encodeURIComponent(
+        formData?.email
+      )}`
+    );
+
+    // 4️⃣ Redirect if payment link exists
+    if (paymentResponse.paymentlink) {
+      window.location.href = paymentResponse.paymentlink;
+    } else {
+      alert(paymentResponse.message || "No payment link found");
+    }
   }
 
   const handleContinue = () => {

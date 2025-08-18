@@ -38,7 +38,7 @@ export default function TermsOfServiceGate({
     };
 
     const insertResponse = await fetch(
-      "https://octopus-app-9gza9.ondigitalocean.app/api/UserAgreement/insert",
+      "https://goldfish-app-y9ksu.ondigitalocean.app/api/UserAgreement/insert",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -52,7 +52,7 @@ export default function TermsOfServiceGate({
 
     // 3️⃣ Get payment link only after insert API success
     const paymentResponse = await fetch(
-      `https://octopus-app-9gza9.ondigitalocean.app/api/Paymentlinks/getpaymentlinkbyemail?email=${encodeURIComponent(
+      `https://goldfish-app-y9ksu.ondigitalocean.app/api/Paymentlinks/getpaymentlinkbyemail?email=${encodeURIComponent(
         formData?.email
       )}`
     );

@@ -42,7 +42,7 @@ export default function ContactPage() {
       setLoading(true);
       try {
         await fetch(
-          "https://octopus-app-9gza9.ondigitalocean.app/api/ContactUsForm/submit",
+          "https://goldfish-app-y9ksu.ondigitalocean.app/api/ContactUsForm/submit",
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },

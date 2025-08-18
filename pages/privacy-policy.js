@@ -6,12 +6,14 @@ export default function LegalPage() {
   const [activeTab, setActiveTab] = useState("privacy");
   const year = new Date().getFullYear();
 
-  const tabBtnClasses = (isActive) =>
-    `border border-[#233252] bg-[#0f1628] px-4 py-2 rounded-lg font-semibold transition-colors ${
-      isActive
-        ? "bg-[#58a6ff] text-[#08111e] border-transparent"
-        : "text-[#e9f0f7]"
-    }`;
+  const tabBtnClasses = (isActive) => `
+  border border-[#233252] bg-[#0f1628] px-4 py-2 rounded-lg font-semibold transition-colors
+  ${
+    isActive
+      ? "bg-[#58a6ff] text-[#08111e] border-transparent"
+      : "text-[#e9f0f7]"
+  }
+`;
 
   const sectionClasses =
     "bg-[#11182b] border border-[#233252] rounded-2xl p-7 shadow-lg";
@@ -37,16 +39,18 @@ export default function LegalPage() {
             aria-label="Documents"
           >
             <button
+              role="tab"
+              aria-selected={activeTab === "privacy"}
               onClick={() => setActiveTab("privacy")}
               className={tabBtnClasses(activeTab === "privacy")}
-              aria-selected={activeTab === "privacy"}
             >
               Privacy Policy
             </button>
             <button
+              role="tab"
+              aria-selected={activeTab === "terms"}
               onClick={() => setActiveTab("terms")}
               className={tabBtnClasses(activeTab === "terms")}
-              aria-selected={activeTab === "terms"}
             >
               Terms of Service
             </button>
@@ -63,11 +67,12 @@ export default function LegalPage() {
               Privacy Policy
             </h1>
             <p className={pClasses}>
-              Welcome to Inovisense ("Company," "we," "our," "us"), a brand of
-              Node7 Logic Inc. We value your privacy and are committed to
-              protecting your personal information. This Privacy Policy explains
-              how we collect, use, disclose, and safeguard your information when
-              you visit our website,{" "}
+              Welcome to Inovisense (&ldquo;Company,&rdquo; &ldquo;we,&rdquo;
+              &ldquo;our,&rdquo; &ldquo;us&rdquo;), a brand of Node7 Logic Inc.
+              We value your privacy and are committed to protecting your
+              personal information. This Privacy Policy explains how we collect,
+              use, disclose, and safeguard your information when you visit our
+              website,{" "}
               <a
                 href="https://inovisense.com/"
                 className="text-[#58a6ff] hover:underline"
@@ -75,9 +80,9 @@ export default function LegalPage() {
               >
                 https://inovisense.com/
               </a>{" "}
-              (the “Site”). Please read this Privacy Policy carefully. If you do
-              not agree with the terms of this Privacy Policy, please do not
-              access the Site.
+              (the &ldquo;Site&rdquo;). Please read this Privacy Policy
+              carefully. If you do not agree with the terms of this Privacy
+              Policy, please do not access the Site.
             </p>
 
             <h2 className={h2Classes}>Information We Collect</h2>
@@ -149,7 +154,7 @@ export default function LegalPage() {
 
             <h2 className={h2Classes}>Authentication</h2>
             <p className={pClasses}>
-              Our app uses Apple’s Face ID technology for secure user
+              Our app uses Apple&rsquo;s Face ID technology for secure user
               authentication. Face ID is managed entirely by Apple and operates
               on the device. Our app does not collect, store, or share any
               facial recognition data.
@@ -228,7 +233,7 @@ export default function LegalPage() {
               responsible for the privacy practices or content of those sites.
             </p>
 
-            <h2 className={h2Classes}>Children’s Privacy</h2>
+            <h2 className={h2Classes}>Children&rsquo;s Privacy</h2>
             <p className={pClasses}>
               The Site is not directed to children under the age of 13, and we
               do not knowingly collect personal information from children.
@@ -280,10 +285,10 @@ export default function LegalPage() {
 
             <h2 className={h2Classes}>1. Acceptance of Terms</h2>
             <p className={pClasses}>
-              By accessing or using Inovisense’s services, website, mobile
-              applications, or equipment (collectively, the “Services”), you
-              agree to be bound by these Terms of Service. If you do not agree,
-              you must not use our Services.
+              By accessing or using Inovisense&rsquo;s services, website, mobile
+              applications, or equipment (collectively, the
+              &ldquo;Services&rdquo;), you agree to be bound by these Terms of
+              Service. If you do not agree, you must not use our Services.
             </p>
 
             <h2 className={h2Classes}>2. Services Overview</h2>

@@ -31,7 +31,7 @@ export default function LegalPage() {
         {/* Header */}
         <header className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-5">
           <div className="font-bold tracking-[0.5px] text-[clamp(18px,2.5vw,22px)]">
-            Inovisense • Legal
+            Inovisense
           </div>
           <nav
             className="flex flex-wrap gap-2"

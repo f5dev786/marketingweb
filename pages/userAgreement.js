@@ -183,8 +183,10 @@ export default function TermsOfServiceGate({
                 }}
               />
               <label htmlFor="agree" className="text-sm ml-2 text-gray-700">
-                I have read and agree to the Privacy Policy and Terms of
-                Service.
+                I have read and agree to the Privacy{" "}
+                <a href="/privacy-policy" className="text-blue-500 underline">
+                  Policy and Terms of Service.
+                </a>
               </label>
               {errors.agreed && (
                 <p className="text-red-500 text-xs mt-1">{errors.agreed}</p>
@@ -195,7 +197,7 @@ export default function TermsOfServiceGate({
               <button
                 type="button"
                 onClick={handleContinue}
-                className="px-5 py-2.5 rounded-xl text-sm font-medium shadow-sm transition bg-black text-white hover:shadow-md"
+                className="px-5 py-2.5 rounded-xl text-sm font-medium shadow-sm transition bg-blue-500 text-white hover:bg-blue-600"
               >
                 Continue
               </button>

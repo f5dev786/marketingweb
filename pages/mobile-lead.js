@@ -122,7 +122,7 @@ export default function MobileLeadForm() {
                 <>
                   <div className="relative mb-6 mt-10">
                     <div className="bg-white rounded-xl shadow-md p-4 pt-12 text-center relative z-10">
-                      <p className="text-sm text-gray-400">Inovisense</p>
+                      <p className="text-sm text-gray-400">Inovisense </p>
                       <h1 className="font-bold text-lg leading-snug">
                         Get Instant Alerts for Out-of-Range Temperatures
                       </h1>

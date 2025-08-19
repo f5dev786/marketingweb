@@ -88,7 +88,7 @@ function AirDevice() {
                 Request a Demo
               </button>
               <Link href="/contact-us">
-                <button className="border border-gray-300 px-5 py-2 rounded-md flex items-center gap-2 hover:bg-black hover:text-white transition">
+                <button className="border border-gray-300 px-5 py-2 rounded-md flex items-center gap-2 hover:bg-black text-black hover:text-white transition">
                   Contact Us
                 </button>
               </Link>

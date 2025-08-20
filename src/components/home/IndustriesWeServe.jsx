@@ -75,7 +75,7 @@ const IndustriesWeServe = () => {
               <p className="text-gray-600 mb-4">{industry.description}</p>
 
               <a
-                href="/product"
+                href="/products"
                 className="font-medium text-sm underline underline-offset-4  transition-colors duration-300 group-hover:text-blue-500"
               >
                 See Solutions &rsaquo;

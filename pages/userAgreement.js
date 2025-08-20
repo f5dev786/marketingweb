@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import LegalPage from "./privacy-policy";
+import Link from "next/link";
 
 export default function TermsOfServiceGate({
   title = "Privacy Policy & Terms of Service",
@@ -118,9 +119,8 @@ export default function TermsOfServiceGate({
                 placeholder="Full Name"
                 value={formData.fullName}
                 onChange={handleInputChange}
-                className={`border rounded-lg px-3 py-2 text-sm w-full focus:!border-blue-500 focus:ring-blue-500 focus:outline-none ${
-                  errors.fullName ? "border-red-500" : ""
-                }`}
+                className={`border rounded-lg px-3 py-2 text-sm w-full focus:!border-blue-500 focus:ring-blue-500 focus:outline-none ${errors.fullName ? "border-red-500" : ""
+                  }`}
               />
               {errors.fullName && (
                 <p className="text-red-500 text-xs mt-1">{errors.fullName}</p>
@@ -134,9 +134,8 @@ export default function TermsOfServiceGate({
                 placeholder="Phone Number"
                 value={formData.phoneNumber}
                 onChange={handleInputChange}
-                className={`border rounded-lg px-3 py-2 text-sm w-full focus:!border-blue-500 focus:ring-blue-500 focus:outline-none ${
-                  errors.phoneNumber ? "border-red-500" : ""
-                }`}
+                className={`border rounded-lg px-3 py-2 text-sm w-full focus:!border-blue-500 focus:ring-blue-500 focus:outline-none ${errors.phoneNumber ? "border-red-500" : ""
+                  }`}
               />
               {errors.phoneNumber && (
                 <p className="text-red-500 text-xs mt-1">
@@ -152,9 +151,8 @@ export default function TermsOfServiceGate({
                 placeholder="Email Address"
                 value={formData.email}
                 onChange={handleInputChange}
-                className={`border rounded-lg px-3 py-2 text-sm w-full focus:!border-blue-500 focus:ring-blue-500 focus:outline-none ${
-                  errors.email ? "border-red-500" : ""
-                }`}
+                className={`border rounded-lg px-3 py-2 text-sm w-full focus:!border-blue-500 focus:ring-blue-500 focus:outline-none ${errors.email ? "border-red-500" : ""
+                  }`}
               />
               {errors.email && (
                 <p className="text-red-500 text-xs mt-1">{errors.email}</p>
@@ -184,9 +182,9 @@ export default function TermsOfServiceGate({
               />
               <label htmlFor="agree" className="text-sm ml-2 text-gray-700">
                 I have read and agree to the Privacy{" "}
-                <a href="/privacy-policy" className="text-blue-500 underline">
+                <Link href="/privacy-policy" className="text-blue-500 underline">
                   Policy and Terms of Service.
-                </a>
+                </Link>
               </label>
               {errors.agreed && (
                 <p className="text-red-500 text-xs mt-1">{errors.agreed}</p>

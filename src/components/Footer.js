@@ -154,13 +154,13 @@ export default function Footer() {
           {/* Buttons */}
           <div className="flex flex-col gap-3">
             <Link
-              href="/https://app.inovisense.com/"
+              href="https://app.inovisense.com"
               className="flex items-center justify-center gap-2 bg-blue-500 text-white  py-2 px-4 rounded-md hover:bg-blue-600"
             >
               Device Console Login <HiOutlineLogin size={18} />
             </Link>
             <Link
-              href="https://inovisense.com/wp-content/uploads/2025/05/Bifold-Brochure-v4.pdf"
+              href="https://inovisense.com/wp-content/uploads/2025/05/Bifold-Brochure-v4.pdf  "
               target="_blank"
               className="flex items-center justify-center gap-2 bg-white text-black  py-2 px-4 rounded-md hover:bg-gray-200"
             >

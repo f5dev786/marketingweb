@@ -68,11 +68,13 @@ export default function TermsOfServiceGate({
       )}`
     );
 
+    const data = await paymentResponse.json();
+
     // 4️⃣ Redirect if payment link exists
-    if (paymentResponse.paymentlink) {
-      window.location.href = paymentResponse.paymentlink;
+    if (data.paymentlink) {
+      window.location.href = data.paymentlink;
     } else {
-      alert(paymentResponse.message || "No payment link found");
+      alert(data.message || "No payment link found");
     }
   }
 

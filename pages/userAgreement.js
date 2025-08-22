@@ -8,6 +8,7 @@ export default function TermsOfServiceGate({
   subtitle = "Please review and accept to continue",
 }) {
   const [agreed, setAgreed] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     phoneNumber: "",
@@ -39,6 +40,9 @@ export default function TermsOfServiceGate({
   // Call your API with IP
   async function sendDataWithIP(formData) {
     // 1️⃣ Get client IP first
+
+
+    setLoading(true)
     const ip = await getClientIP();
 
     // 2️⃣ Prepare payload and send to insert API
@@ -74,6 +78,7 @@ export default function TermsOfServiceGate({
     if (data.paymentlink) {
       window.location.href = data.paymentlink;
     } else {
+      setLoading(false)
       alert(data.message || "No payment link found");
     }
   }
@@ -131,9 +136,8 @@ export default function TermsOfServiceGate({
                 placeholder="Full Name"
                 value={formData.fullName}
                 onChange={handleInputChange}
-                className={`border rounded-lg px-3 py-2 text-sm w-full focus:!border-blue-500 focus:ring-blue-500 focus:outline-none ${
-                  errors.fullName ? "border-red-500" : ""
-                }`}
+                className={`border rounded-lg px-3 py-2 text-sm w-full focus:!border-blue-500 focus:ring-blue-500 focus:outline-none ${errors.fullName ? "border-red-500" : ""
+                  }`}
               />
               {errors.fullName && (
                 <p className="text-red-500 text-xs mt-1">{errors.fullName}</p>
@@ -147,9 +151,8 @@ export default function TermsOfServiceGate({
                 placeholder="Phone Number"
                 value={formData.phoneNumber}
                 onChange={handleInputChange}
-                className={`border rounded-lg px-3 py-2 text-sm w-full focus:!border-blue-500 focus:ring-blue-500 focus:outline-none ${
-                  errors.phoneNumber ? "border-red-500" : ""
-                }`}
+                className={`border rounded-lg px-3 py-2 text-sm w-full focus:!border-blue-500 focus:ring-blue-500 focus:outline-none ${errors.phoneNumber ? "border-red-500" : ""
+                  }`}
               />
               {errors.phoneNumber && (
                 <p className="text-red-500 text-xs mt-1">
@@ -166,9 +169,8 @@ export default function TermsOfServiceGate({
                 value={formData.email}
                 disabled
                 onChange={handleInputChange}
-                className={`border rounded-lg px-3 py-2 text-sm w-full focus:!border-blue-500 focus:ring-blue-500 focus:outline-none ${
-                  errors.email ? "border-red-500" : ""
-                }`}
+                className={`border rounded-lg px-3 py-2 text-sm w-full focus:!border-blue-500 focus:ring-blue-500 focus:outline-none ${errors.email ? "border-red-500" : ""
+                  }`}
               />
               {errors.email && (
                 <p className="text-red-500 text-xs mt-1">{errors.email}</p>
@@ -213,10 +215,11 @@ export default function TermsOfServiceGate({
             <div className="flex items-center justify-end gap-3">
               <button
                 type="button"
+                disabled={loading}
                 onClick={handleContinue}
                 className="px-5 py-2.5 rounded-xl text-sm font-medium shadow-sm transition bg-blue-500 text-white hover:bg-blue-600"
               >
-                Continue
+                {loading ? "Loading..." : "Continue"}
               </button>
             </div>
           </div>

@@ -25,7 +25,7 @@ const LocationAndSite = () => {
           slidesPerView={1}
           autoplay={{ delay: 5000, disableOnInteraction: false }}
           loop
-          className="rounded-xl shadow-xl"
+          className="rounded-xl shadow-xl mx-2"
         >
           {[location, site].map((img, index) => (
             <SwiperSlide key={index}>

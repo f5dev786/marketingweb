@@ -40,7 +40,7 @@ export default function WhyChooseSection() {
         </div>
 
         {/* heading */}
-        <h2 className="text-5xl md:text-[42px]  mb-12">
+        <h2 className="text-xl md:text-5xl  mb-12">
           At Inovisense, we make innovation reliable, effortless, <br /> and
           centered around you.
         </h2>

@@ -95,9 +95,8 @@ export default function MonitoringDashboard() {
                 alt="Inovisense Monitoring Dashboard"
                 width={550}
                 height={600}
-                className={`rounded-xl shadow-lg transition-opacity duration-500 ease-in-out ${
-                  fade ? "opacity-0" : "opacity-100"
-                }`}
+                className={`rounded-xl shadow-lg transition-opacity duration-500 ease-in-out ${fade ? "opacity-0" : "opacity-100"
+                  }`}
               />
             </div>
           </div>
@@ -108,7 +107,7 @@ export default function MonitoringDashboard() {
           <div className="max-w-6xl mx-auto">
             <div className="relative bg-white rounded-md shadow-lg overflow-hidden">
               {/* Left diagonal dark section */}
-              <div className="absolute inset-y-0 left-0 w-[90%] bg-[#002640] clip-diagonal-left"></div>
+              <div className="absolute inset-y-0 left-0 md:w-[90%] w-full bg-[#002640]  clip-diagonal-left"></div>
 
               <div className="relative z-10 flex flex-col md:flex-row justify-between items-center px-8 py-10">
                 {/* Left Content */}
@@ -123,12 +122,12 @@ export default function MonitoringDashboard() {
 
                 {/* Right Content */}
                 <div className="w-full md:w-1/2 mt-8 md:mt-0 flex flex-col items-center md:items-end">
-                  <p className="text-sm text-black mb-2">
+                  <p className="text-sm md:text-black text-white mb-2">
                     Get professional help
                   </p>
                   <p className="text-blue-600 text-xl ">Call us 848 313 0582</p>
                   <a href="mailto:support@inovisense.com">
-                    <button className="mt-4 bg-[#002640] text-white px-6 py-3 rounded-md cursor-pointer transition-all duration-300 hover:bg-blue-500 hover:scale-105">
+                    <button className="mt-4 bg-[#228acf] text-white px-6 py-3 rounded-md cursor-pointer transition-all duration-300 hover:bg-blue-500 hover:scale-105">
                       Email Us
                     </button>
                   </a>
@@ -139,10 +138,18 @@ export default function MonitoringDashboard() {
 
           {/* Custom clip path style */}
           <style jsx>{`
-            .clip-diagonal-left {
-              clip-path: polygon(0 0, 60% 0, 40% 100%, 0% 100%);
-            }
-          `}</style>
+  /* Default (mobile-first) – no clip-path */
+  .clip-diagonal-left {
+    clip-path: none;
+  }
+
+  /* Apply clip-path only on screens >= 768px (tablet/desktop) */
+  @media (min-width: 768px) {
+    .clip-diagonal-left {
+      clip-path: polygon(0 0, 60% 0, 40% 100%, 0% 100%);
+    }
+  }
+`}</style>
         </div>
       </div>
       {isOpen && (

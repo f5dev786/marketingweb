@@ -160,7 +160,7 @@ export default function Footer() {
               Device Console Login <HiOutlineLogin size={18} />
             </Link>
             <Link
-              href="https://inovisense.com/wp-content/uploads/2025/05/Bifold-Brochure-v4.pdf  "
+              href="/assets/Bifold-Brochure-v4.pdf"
               target="_blank"
               className="flex items-center justify-center gap-2 bg-white text-black  py-2 px-4 rounded-md hover:bg-gray-200"
             >
@@ -171,7 +171,7 @@ export default function Footer() {
       </div>
 
       {/* QR Codes */}
-      <div className="flex justify-center flex-col md:flex-row  mt-8 gap-10">
+      <div className="flex justify-center flex-row  mt-8  gap-10 px-4">
         <Link
           href="https://apps.apple.com/us/app/inovisense/id6740456029"
           target="_blank"

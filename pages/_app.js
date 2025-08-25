@@ -76,7 +76,7 @@ export default function App({ Component, pageProps }) {
       )}
       {!isMobileLeadPage && (
         <a
-          href="tel:+11234567890"
+          href="tel:+18483130582"
           className="fixed bottom-4 right-4 z-50 bg-green-600 text-white p-4 rounded-full shadow-lg md:hidden flex items-center justify-center"
         >
           <FaPhoneAlt className="text-xl" />

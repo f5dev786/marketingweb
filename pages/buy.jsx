@@ -16,16 +16,13 @@ export default function PricingCalculator() {
     const [gatewaysPerSite, setGatewaysPerSite] = useState(1);
     const [subscription, setSubscription] = useState(0);
     const [hardware, setHardware] = useState(0);
-
-
+    const [loading, setLoading] = useState(false)
 
     const fmt = (n) =>
         new Intl.NumberFormat(undefined, {
             style: "currency",
             currency: "USD",
         }).format(n);
-
-
 
     useEffect(() => {
         const sub = sites * SUB_PRICE;
@@ -44,6 +41,7 @@ export default function PricingCalculator() {
 
 
     const addToCart = async () => {
+        setLoading(true)
         try {
             const response = await fetch("https://goldfish-app-y9ksu.ondigitalocean.app/api/create-checkout-session", {
                 method: "POST",
@@ -242,8 +240,8 @@ export default function PricingCalculator() {
                             <span className="font-bold">{fmt(subscription)} / mo</span>
                         </div>
                         <div className="flex flex-col sm:flex-row gap-3 mt-4">
-                            <button className="bg-blue-600 text-white rounded-xl px-4 py-2 font-semibold" onClick={() => addToCart()}>
-                                Add to Cart
+                            <button disabled={loading} className="bg-blue-600 text-white rounded-xl px-4 py-2 font-semibold" onClick={() => addToCart()}>
+                                {loading ? "Loading..." : "Add to Cart"}
                             </button>
                             <Link href={"/contact-us"} target="_blank">
                                 <button className="bg-gray-200 rounded-xl px-4 py-2 font-semibold cursor-pointer">

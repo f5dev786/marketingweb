@@ -61,7 +61,7 @@ export default function PricingCalculator() {
                 </div>
 
                 {/* Responsive Grid */}
-                <div className="grid grid-cols-3 md:grid-cols-[1fr,360px] gap-6">
+                <div className="grid md:grid-cols-3 grid-cols-1 gap-6">
                     {/* LEFT */}
                     <div className="bg-white rounded-2xl shadow border border-gray-200 p-4 sm:p-6 col-span-2">
                         {/* Step 1 */}

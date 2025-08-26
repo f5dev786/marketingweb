@@ -10,7 +10,9 @@ import { useRouter } from "next/router"; // ✅ Import useRouter
 export default function App({ Component, pageProps }) {
   const router = useRouter();
   const isMobileLeadPage =
-    router.pathname === "/mobile-lead" || router.pathname === "/userAgreement"; // ✅ Check the path
+    router.pathname === "/mobile-lead" ||
+    router.pathname === "/userAgreement" ||
+    router.pathname === "/subscription"; // ✅ Check the path
 
   return (
     <>

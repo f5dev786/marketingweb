@@ -197,6 +197,10 @@ export default function PricingCalculator() {
                             <span className="font-bold">{fmt(hardware)}</span>
                         </div>
                         <div className="flex justify-between border-b py-2">
+                            <span>Shipping</span>
+                            <span className="font-bold">Free</span>
+                        </div>
+                        <div className="flex justify-between border-b py-2">
                             <span>Due today</span>
                             <span className="font-bold">
                                 {fmt(hardware + subscription)}

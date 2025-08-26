@@ -87,7 +87,7 @@ function TempDevice() {
               >
                 Request a Demo
               </button>
-              <Link href={"https://app.inovisense.com/subscription"} replace>
+              <Link href={"/buy"} replace>
                 <button className="border border-gray-300 px-5 py-2 rounded-md flex items-center gap-2 hover:bg-black hover:text-white text-black transition">
                   Buy Now
                   <IoMdCart className="text-xl" />
@@ -204,7 +204,7 @@ function TempDevice() {
                 >
                   Request a Demo
                 </button>
-                <Link href={"https://app.inovisense.com/subscription"} replace>
+                <Link href={"/buy"} replace>
                   <button className="border border-gray-300 px-5 py-2 rounded-md flex items-center gap-2 hover:bg-black hover:text-white transition">
                     Buy Now
                     <IoMdCart className="text-xl" />

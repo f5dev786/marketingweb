@@ -12,7 +12,8 @@ export default function App({ Component, pageProps }) {
   const isMobileLeadPage =
     router.pathname === "/mobile-lead" ||
     router.pathname === "/userAgreement" ||
-    router.pathname === "/subscription"; // ✅ Check the path
+    router.pathname === "/checkout" ||
+    router.pathname === "/buy"; // ✅ Check the path
 
   return (
     <>

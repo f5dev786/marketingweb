@@ -97,7 +97,7 @@ export default function WhyInovisenseSection() {
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-8">
-            <Link href={"https://app.inovisense.com/subscription"} replace>
+            <Link href={"/buy"} replace>
               <button className="group border border-gray-300 gap-2 px-4 py-2 rounded-md flex items-center hover:text-white hover:bg-black transition-colors">
                 Buy Now
                 <IoMdCart className="text-2xl group-hover:animate-bounce transition-all" />

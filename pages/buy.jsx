@@ -1,21 +1,19 @@
 "use client";
 
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 
 export default function PricingCalculator() {
-    const SUB_PRICE = 15; // per site per month
+    const SUB_PRICE = 14.99; // per site per month
     const SENSOR_PRICE = 55; // fixed USD
     const GATEWAY_PRICE = 199; // fixed USD
+    const router = useRouter();
+
 
     const [sites, setSites] = useState(1);
     const [sensorsPerSite, setSensorsPerSite] = useState(1);
     const [gatewaysPerSite, setGatewaysPerSite] = useState(1);
-    const [totalSensors, setTotalSensors] = useState(1);
-    const [totalGateways, setTotalGateways] = useState(1);
-
-
-
     const [subscription, setSubscription] = useState(0);
     const [hardware, setHardware] = useState(0);
 
@@ -27,18 +25,14 @@ export default function PricingCalculator() {
             currency: "USD",
         }).format(n);
 
-    useEffect(() => {
-        const s = sites;
-        setTotalSensors(s * sensorsPerSite);
-        setTotalGateways(s * gatewaysPerSite);
-    }, [sites, sensorsPerSite, gatewaysPerSite]);
+
 
     useEffect(() => {
         const sub = sites * SUB_PRICE;
-        const hw = totalSensors * SENSOR_PRICE + totalGateways * GATEWAY_PRICE;
+        const hw = (sensorsPerSite * SENSOR_PRICE) + (gatewaysPerSite * GATEWAY_PRICE);
         setSubscription(sub);
         setHardware(hw);
-    }, [sites, totalSensors, totalGateways]);
+    }, [sites, sensorsPerSite, gatewaysPerSite]);
 
     useEffect(() => {
         if (sites >= gatewaysPerSite) {
@@ -46,6 +40,43 @@ export default function PricingCalculator() {
         }
 
     }, [sites, gatewaysPerSite])
+
+
+
+    const addToCart = async () => {
+        try {
+            const response = await fetch("https://goldfish-app-y9ksu.ondigitalocean.app/api/create-checkout-session", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify([
+                    {
+                        priceId: "price_1RiKo0KCrHxXCFbBVpArs2UA", // replace with your real price ID
+                        quantity: sensorsPerSite,            // quantity to purchase
+                    },
+                    {
+                        priceId: "price_1S0T3gKCrHxXCFbBNbIU4B5J", // replace with your real price ID
+                        quantity: gatewaysPerSite,            // quantity to purchase
+                    },
+                    {
+                        priceId: "price_1S0TNjKCrHxXCFbB1UkURzr6", // replace with your real price ID
+                        quantity: sites,            // quantity to purchase
+                    },
+                ]),
+            });
+
+
+
+            const { clientSecret } = await response.json();
+            router.push(`/checkout/?token=${clientSecret}`);
+
+
+
+        } catch (error) {
+            console.error("Error creating checkout session:", error);
+        }
+    }
 
     return (
         <div className="bg-white text-black">
@@ -211,7 +242,7 @@ export default function PricingCalculator() {
                             <span className="font-bold">{fmt(subscription)} / mo</span>
                         </div>
                         <div className="flex flex-col sm:flex-row gap-3 mt-4">
-                            <button className="bg-blue-600 text-white rounded-xl px-4 py-2 font-semibold">
+                            <button className="bg-blue-600 text-white rounded-xl px-4 py-2 font-semibold" onClick={() => addToCart()}>
                                 Add to Cart
                             </button>
                             <Link href={"/contact-us"} target="_blank">
@@ -226,6 +257,7 @@ export default function PricingCalculator() {
                     </div>
                 </div>
             </div>
+
         </div>
     );
 }

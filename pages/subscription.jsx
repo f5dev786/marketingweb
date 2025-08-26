@@ -8,11 +8,11 @@ export default function PricingCalculator() {
     const SENSOR_PRICE = 55; // fixed USD
     const GATEWAY_PRICE = 199; // fixed USD
 
-    const [sites, setSites] = useState(2);
-    const [sensorsPerSite, setSensorsPerSite] = useState(3);
+    const [sites, setSites] = useState(1);
+    const [sensorsPerSite, setSensorsPerSite] = useState(1);
     const [gatewaysPerSite, setGatewaysPerSite] = useState(1);
-    const [totalSensors, setTotalSensors] = useState(6);
-    const [totalGateways, setTotalGateways] = useState(2);
+    const [totalSensors, setTotalSensors] = useState(1);
+    const [totalGateways, setTotalGateways] = useState(1);
 
 
 

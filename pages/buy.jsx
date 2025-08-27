@@ -85,7 +85,7 @@ export default function PricingCalculator() {
                     </h1>
                     <p className="text-gray-600 text-sm sm:text-base">
                         Hardware one-time (Sensor $55, Gateway $199) +{" "}
-                        <strong>$15/mo per site</strong>.
+                        <strong>$14.99/mo per site</strong>.
                     </p>
                 </div>
 
@@ -130,7 +130,7 @@ export default function PricingCalculator() {
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
                                     <label className="text-md text-gray-500 mb-1 block">
-                                        Sensors per site
+                                       Total Sensors
                                     </label>
                                     <div className="flex items-center border rounded-xl overflow-hidden">
                                         <button
@@ -160,7 +160,7 @@ export default function PricingCalculator() {
                                 </div>
                                 <div>
                                     <label className="text-md text-gray-500 mb-1 block">
-                                        Gateways per site
+                                        Total Gateways
                                     </label>
                                     <div className="flex items-center border rounded-xl overflow-hidden">
                                         <button
@@ -190,9 +190,7 @@ export default function PricingCalculator() {
                                     </div>
                                 </div>
                             </div>
-                            <p className="text-md text-gray-500 mt-2">
-                                Totals are calculated automatically: sites × per-site hardware.
-                            </p>
+                            
                         </div>
 
                         {/* Step 3 */}

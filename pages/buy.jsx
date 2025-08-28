@@ -1,9 +1,11 @@
-"use client";
-
 import Header from "@/src/components/Header";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
+import logo from "../public/assets/logo.png";
+import Image from "next/image";
+import { FiCopy, FiPhone, FiX } from "react-icons/fi";
+import { FaCartPlus } from "react-icons/fa";
 
 export default function PricingCalculator() {
   const SUB_PRICE = 14.99; // per site per month
@@ -17,7 +19,23 @@ export default function PricingCalculator() {
   const [subscription, setSubscription] = useState(0);
   const [hardware, setHardware] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [open, setOpen] = useState(false);
 
+  // detect if it's mobile
+  const isMobile = () => {
+    if (typeof navigator === "undefined") return false;
+    return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  };
+
+  const handleClick = () => {
+    if (isMobile()) {
+      // On mobile → directly open dialer
+      window.location.href = "tel:+18483130582";
+    } else {
+      // On desktop → open modal
+      setOpen(true);
+    }
+  };
   const fmt = (n) =>
     new Intl.NumberFormat("en-US", {
       style: "currency",
@@ -77,7 +95,39 @@ export default function PricingCalculator() {
 
   return (
     <>
-      <Header blank={true} />
+      <header className="w-full sticky top-0 z-50 bg-white shadow text-gray-900">
+        {/* Top Bar */}
+        <div className="flex justify-between items-center px-4 md:px-6 py-2  text-gray-700 border-b border-gray-200">
+          <div
+            className="text-center md:text-left w-full md:w-auto text-[15px] ml-5"
+            style={{ fontFamily: "Kumbh Sans" }}
+          >
+            Call us <span className="font-medium">848 313 0582</span>{" "}
+            <span className="mx-2  hidden md:inline">|</span>{" "}
+            <a href="mailto:support@inovisense.com">
+              <span className=" hidden md:inline hover:text-blue-500">
+                support@inovisense.com
+              </span>
+            </a>
+          </div>
+        </div>
+
+        {/* Main Nav */}
+        <div className="flex justify-between items-center px-4 md:px-[57px] py-3 text-gray-900 text-[18px]">
+          {/* Logo */}
+          <div className="md:w-[30%] w-[50%]">
+            <Link href="/" className="flex items-center">
+              <Image
+                src={logo}
+                alt="Inovisense"
+                width={270}
+                unoptimized
+                height={70}
+              />
+            </Link>
+          </div>
+        </div>
+      </header>
       <div className="bg-white text-black">
         <div className="mx-auto px-4 sm:px-6 py-8 sm:py-12">
           <div className="text-center mb-8 sm:mb-10">
@@ -91,7 +141,7 @@ export default function PricingCalculator() {
           </div>
 
           {/* Responsive Grid */}
-          <div className="grid md:grid-cols-3 grid-cols-1 gap-6">
+          <div className="grid lg:grid-cols-3 grid-cols-1 gap-6">
             {/* LEFT */}
             <div className="bg-white rounded-2xl shadow border border-gray-200 p-4 sm:p-6 col-span-2">
               {/* Step 1 */}
@@ -251,16 +301,23 @@ export default function PricingCalculator() {
               <div className="flex flex-col sm:flex-row gap-3 mt-4">
                 <button
                   disabled={loading}
-                  className="bg-blue-600 text-white rounded-xl px-4 py-2 font-semibold"
+                  className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-xl px-6 py-3 font-semibold shadow-md hover:scale-105 transition-transform duration-200 flex items-center gap-2"
                   onClick={() => addToCart()}
                 >
-                  {loading ? "Loading..." : "Add to Cart"}
+                  {loading ? (
+                    "Loading..."
+                  ) : (
+                    <span className="flex items-center gap-2">
+                      <FaCartPlus /> Add to Cart
+                    </span>
+                  )}
                 </button>
-                <Link href={"/contact-us"} target="_blank">
-                  <button className="bg-gray-200 rounded-xl px-4 py-2 font-semibold cursor-pointer">
-                    Contact Sales
-                  </button>
-                </Link>
+                <button
+                  onClick={() => setOpen(true)}
+                  className="bg-gradient-to-r from-indigo-500 to-purple-500 text-white rounded-xl px-6 py-3 font-semibold shadow-md hover:scale-105 transition-transform duration-200 flex items-center gap-2"
+                >
+                  <FiPhone size={18} /> Contact Sales
+                </button>
               </div>
               <p className="text-md text-gray-500 mt-3">
                 USD only. Sensor $55 • Gateway $199.
@@ -268,6 +325,42 @@ export default function PricingCalculator() {
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="flex justify-center items-center">
+        {open && (
+          <div className="fixed inset-0 flex items-center justify-center bg-black/50 z-50 px-4">
+            <div className="bg-white rounded-2xl p-6 max-w-sm w-full shadow-lg text-center relative">
+              {/* Close */}
+              <button
+                onClick={() => setOpen(false)}
+                className="absolute top-3 right-3 text-gray-500 hover:text-gray-700"
+              >
+                <FiX size={22} />
+              </button>
+
+              <h2 className="text-xl font-bold text-gray-800 mb-2">
+                Contact Sales
+              </h2>
+              <p className="text-gray-600 mb-4">
+                Call us on the number below to talk with our sales team.
+              </p>
+
+              <div className="flex flex-col gap-3 items-center">
+                <span className="text-lg font-semibold text-indigo-600 flex items-center gap-2">
+                  <FiPhone size={20} /> +1 (848) 313-0582
+                </span>
+
+                <button
+                  onClick={() => navigator.clipboard.writeText("+18483130582")}
+                  className="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-xl text-sm flex items-center gap-2"
+                >
+                  <FiCopy size={16} /> Copy Number
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </>
   );

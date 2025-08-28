@@ -9,7 +9,7 @@ import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import logo from "../../public/assets/logo.png";
 import { useRouter } from "next/router";
 
-export default function Header() {
+export default function Header({ blank = false }) {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [productMenuOpen, setProductMenuOpen] = useState(false);
@@ -33,36 +33,40 @@ export default function Header() {
             </span>
           </a>
         </div>
-        <div
-          className="hidden md:flex space-x-4 items-center"
-          style={{ fontFamily: "Poppins, Arial, Helvetica, sans-serif" }}
-        >
-          <Link href="https://app.inovisense.com" target="_blank">
-            <button className="bg-[#0993fa] text-white px-[30px] py-[9px] text-[12px] hover-bh-black rounded hover:bg-blue-600 transition">
-              Login ↪
-            </button>
-          </Link>
-          <Link
-            href="https://www.facebook.com/people/Inovisense/61574108742567/"
-            target="_blank"
+        {!blank && (
+          <div
+            className="hidden md:flex space-x-4 items-center"
+            style={{ fontFamily: "Poppins, Arial, Helvetica, sans-serif" }}
           >
-            <FaFacebookF className="cursor-pointer hover:text-blue-500" />
-          </Link>
-          <Link
-            href="https://www.linkedin.com/company/inovisense/posts/?feedView=all"
-            target="_blank"
-          >
-            <FaLinkedinIn className="cursor-pointer hover:text-blue-700" />
-          </Link>
-        </div>
+            <Link href="https://app.inovisense.com" target="_blank">
+              <button className="bg-[#0993fa] text-white px-[30px] py-[9px] text-[12px] hover-bh-black rounded hover:bg-blue-600 transition">
+                Login ↪
+              </button>
+            </Link>
+            <Link
+              href="https://www.facebook.com/people/Inovisense/61574108742567/"
+              target="_blank"
+            >
+              <FaFacebookF className="cursor-pointer hover:text-blue-500" />
+            </Link>
+            <Link
+              href="https://www.linkedin.com/company/inovisense/posts/?feedView=all"
+              target="_blank"
+            >
+              <FaLinkedinIn className="cursor-pointer hover:text-blue-700" />
+            </Link>
+          </div>
+        )}
       </div>
 
       {/* Main Nav */}
-      <div className="flex justify-between items-center px-4 md:px-[57px] py-3 text-gray-900 text-[18px]">
+      <div
+        className={` justify-between flex items-center px-4 md:px-[57px] py-3 text-gray-900 text-[18px]`}
+      >
         {/* Logo */}
         <Link
           href="/"
-          className="flex items-center"
+          className={`flex items-center  `}
           onClick={() => setActiveSection("")}
         >
           <Image
@@ -73,166 +77,180 @@ export default function Header() {
             height={70}
           />
         </Link>
+        <>
+          {/* Desktop Nav */}
 
-        {/* Desktop Nav */}
-        <nav
-          className="hidden md:flex items-center space-x-6 text-[18px]"
-          style={{
-            fontFamily: "'Space Grotesk'",
-          }}
-        >
-          <Link
-            onClick={() => setActiveSection("")}
-            href="/"
-            className={`font-medium hover:text-blue-500 ${
-              (!activeSection ? pathname === "/" : activeSection === "/")
-                ? "text-blue-500 font-semibold"
-                : ""
-            }`}
+          <nav
+            className="hidden md:flex items-center space-x-6 text-[18px] w-full "
+            style={{
+              fontFamily: "'Space Grotesk'",
+            }}
           >
-            Home
-          </Link>
+            {!blank && (
+              <>
+                <Link
+                  onClick={() => setActiveSection("")}
+                  href="/"
+                  className={`font-medium hover:text-blue-500 ${
+                    (!activeSection ? pathname === "/" : activeSection === "/")
+                      ? "text-blue-500 font-semibold"
+                      : ""
+                  }`}
+                >
+                  Home
+                </Link>
 
-          <div className="relative group text-[18px]">
-            {/* Main trigger */}
-            <div
-              className="flex items-center cursor-pointer font-medium hover:text-blue-500 px-2 py-1"
-              onClick={() => router.push("/products")}
-            >
-              <span
-                className={`flex items-center ${
-                  pathname === "/products" ? "text-blue-500 font-semibold" : ""
-                }`}
+                <div className="relative group text-[18px]">
+                  {/* Main trigger */}
+                  <div
+                    className="flex items-center cursor-pointer font-medium hover:text-blue-500 px-2 py-1"
+                    onClick={() => router.push("/products")}
+                  >
+                    <span
+                      className={`flex items-center ${
+                        pathname === "/products"
+                          ? "text-blue-500 font-semibold"
+                          : ""
+                      }`}
+                    >
+                      Products <FiChevronDown className="ml-1" />
+                    </span>
+                  </div>
+
+                  {/* Dropdown */}
+                  <div className="absolute left-0 top-full mt-0 w-72 text-sm bg-white border border-gray-200 shadow-md rounded hidden group-hover:block z-50">
+                    <ul className="bg-white">
+                      <li>
+                        <Link
+                          href="/temperature-humidity-monitoring"
+                          className="block px-4 py-3 border-b border-gray-200 hover:bg-black hover:text-white"
+                        >
+                          Temperature & Humidity Monitoring
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          href="/indoor-air-quality-monitoring"
+                          className="block px-4 py-3 border-b border-gray-200 hover:bg-black hover:text-white"
+                        >
+                          Indoor Air Quality Monitoring
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          href="/liquid-level-monitoring"
+                          className="block px-4 py-3 border-b border-gray-200 hover:bg-black hover:text-white"
+                        >
+                          Liquid Level Monitoring
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
+                <Link
+                  href="/#why-choose"
+                  replace
+                  onClick={() => setActiveSection("why-choose")}
+                  className={`font-medium hover:text-blue-500 ${
+                    activeSection === "why-choose"
+                      ? "text-blue-500 font-semibold"
+                      : ""
+                  }`}
+                >
+                  Why Choose
+                </Link>
+                <Link
+                  href="/#web-dashboard"
+                  replace
+                  onClick={() => setActiveSection("web-dashboard")}
+                  className={`font-medium hover:text-blue-500 ${
+                    activeSection === "web-dashboard"
+                      ? "text-blue-500 font-semibold"
+                      : ""
+                  }`}
+                >
+                  Features
+                </Link>
+                <Link
+                  href="/#solutions"
+                  replace
+                  onClick={() => setActiveSection("solutions")}
+                  className={`font-medium hover:text-blue-500 ${
+                    activeSection === "solutions"
+                      ? "text-blue-500 font-semibold"
+                      : ""
+                  }`}
+                >
+                  Solutions
+                </Link>
+                <Link
+                  href="/portfolio-items/how-a-dairy-queen-franchisee-saved-thousands-on-spoiled-food"
+                  onClick={() =>
+                    setActiveSection(
+                      "/portfolio-items/how-a-dairy-queen-franchisee-saved-thousands-on-spoiled-food"
+                    )
+                  }
+                  className={`font-medium hover:text-blue-500 ${
+                    activeSection ===
+                    "/portfolio-items/how-a-dairy-queen-franchisee-saved-thousands-on-spoiled-food"
+                      ? "text-blue-500 font-semibold"
+                      : ""
+                  }`}
+                >
+                  Case Study
+                </Link>
+              </>
+            )}
+          </nav>
+
+          {/* CTA + Hamburger */}
+          {!blank && (
+            <div className="flex items-center md:hidden gap-4">
+              <Link href="https://app.inovisense.com" target="_blank">
+                <span className="text-xl">↪</span>
+              </Link>
+
+              {/* Hamburger */}
+              <button
+                className="relative w-6 h-6 focus:outline-none"
+                onClick={() => setMenuOpen(!menuOpen)}
               >
-                Products <FiChevronDown className="ml-1" />
-              </span>
+                <div
+                  className={`absolute w-6 h-0.5 bg-black transition-transform duration-300 ${
+                    menuOpen ? "rotate-45 top-2.5" : "top-1"
+                  }`}
+                />
+                <div
+                  className={`absolute w-6 h-0.5 bg-black transition-opacity duration-300 ${
+                    menuOpen ? "opacity-0" : "top-2.5"
+                  }`}
+                />
+                <div
+                  className={`absolute w-6 h-0.5 bg-black transition-transform duration-300 ${
+                    menuOpen ? "-rotate-45 top-2.5" : "top-4"
+                  }`}
+                />
+              </button>
             </div>
+          )}
 
-            {/* Dropdown */}
-            <div className="absolute left-0 top-full mt-0 w-72 text-sm bg-white border border-gray-200 shadow-md rounded hidden group-hover:block z-50">
-              <ul className="bg-white">
-                <li>
-                  <Link
-                    href="/temperature-humidity-monitoring"
-                    className="block px-4 py-3 border-b border-gray-200 hover:bg-black hover:text-white"
-                  >
-                    Temperature & Humidity Monitoring
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/indoor-air-quality-monitoring"
-                    className="block px-4 py-3 border-b border-gray-200 hover:bg-black hover:text-white"
-                  >
-                    Indoor Air Quality Monitoring
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/liquid-level-monitoring"
-                    className="block px-4 py-3 border-b border-gray-200 hover:bg-black hover:text-white"
-                  >
-                    Liquid Level Monitoring
-                  </Link>
-                </li>
-              </ul>
+          {/* Desktop CTA */}
+          {!blank && (
+            <div
+              className="hidden md:block"
+              style={{
+                fontFamily: "'Kumbh Sans'",
+              }}
+            >
+              <Link href="/contact-us">
+                <button className="bg-slate-900 text-white px-[40px] py-[10px] rounded-md text-[18px] font-medium hover:bg-blue-500">
+                  Contact Us
+                </button>
+              </Link>
             </div>
-          </div>
-
-          <Link
-            href="/#why-choose"
-            replace
-            onClick={() => setActiveSection("why-choose")}
-            className={`font-medium hover:text-blue-500 ${
-              activeSection === "why-choose"
-                ? "text-blue-500 font-semibold"
-                : ""
-            }`}
-          >
-            Why Choose
-          </Link>
-          <Link
-            href="/#web-dashboard"
-            replace
-            onClick={() => setActiveSection("web-dashboard")}
-            className={`font-medium hover:text-blue-500 ${
-              activeSection === "web-dashboard"
-                ? "text-blue-500 font-semibold"
-                : ""
-            }`}
-          >
-            Features
-          </Link>
-          <Link
-            href="/#solutions"
-            replace
-            onClick={() => setActiveSection("solutions")}
-            className={`font-medium hover:text-blue-500 ${
-              activeSection === "solutions" ? "text-blue-500 font-semibold" : ""
-            }`}
-          >
-            Solutions
-          </Link>
-          <Link
-            href="/portfolio-items/how-a-dairy-queen-franchisee-saved-thousands-on-spoiled-food"
-            onClick={() =>
-              setActiveSection(
-                "/portfolio-items/how-a-dairy-queen-franchisee-saved-thousands-on-spoiled-food"
-              )
-            }
-            className={`font-medium hover:text-blue-500 ${
-              activeSection ===
-              "/portfolio-items/how-a-dairy-queen-franchisee-saved-thousands-on-spoiled-food"
-                ? "text-blue-500 font-semibold"
-                : ""
-            }`}
-          >
-            Case Study
-          </Link>
-        </nav>
-
-        {/* CTA + Hamburger */}
-        <div className="flex items-center md:hidden gap-4">
-          <Link href="https://app.inovisense.com" target="_blank">
-            <span className="text-xl">↪</span>
-          </Link>
-
-          {/* Hamburger */}
-          <button
-            className="relative w-6 h-6 focus:outline-none"
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            <div
-              className={`absolute w-6 h-0.5 bg-black transition-transform duration-300 ${
-                menuOpen ? "rotate-45 top-2.5" : "top-1"
-              }`}
-            />
-            <div
-              className={`absolute w-6 h-0.5 bg-black transition-opacity duration-300 ${
-                menuOpen ? "opacity-0" : "top-2.5"
-              }`}
-            />
-            <div
-              className={`absolute w-6 h-0.5 bg-black transition-transform duration-300 ${
-                menuOpen ? "-rotate-45 top-2.5" : "top-4"
-              }`}
-            />
-          </button>
-        </div>
-
-        {/* Desktop CTA */}
-        <div
-          className="hidden md:block"
-          style={{
-            fontFamily: "'Kumbh Sans'",
-          }}
-        >
-          <Link href="/contact-us">
-            <button className="bg-slate-900 text-white px-[40px] py-[10px] rounded-md text-[18px] font-medium hover:bg-blue-500">
-              Contact Us
-            </button>
-          </Link>
-        </div>
+          )}
+        </>
       </div>
 
       {/* Mobile Menu */}

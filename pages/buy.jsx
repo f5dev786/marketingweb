@@ -192,7 +192,7 @@ export default function PricingCalculator() {
                                         <div className="flex items-center border rounded-xl overflow-hidden">
                                             <button
                                                 className="w-10 h-10 bg-gray-200 text-lg flex-shrink-0"
-                                                disabled={sites >= gatewaysPerSite}
+                                                disabled={sites >= sensorsPerSite}
                                                 onClick={() =>
                                                     setSensorsPerSite(Math.max(1, sensorsPerSite - 1))
                                                 }

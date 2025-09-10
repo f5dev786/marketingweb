@@ -41,8 +41,7 @@ export default function TermsOfServiceGate({
   async function sendDataWithIP(formData) {
     // 1️⃣ Get client IP first
 
-
-    setLoading(true)
+    setLoading(true);
     const ip = await getClientIP();
 
     // 2️⃣ Prepare payload and send to insert API
@@ -78,14 +77,13 @@ export default function TermsOfServiceGate({
     if (data.paymentlink) {
       window.location.href = data.paymentlink;
     } else {
-      setLoading(false)
+      setLoading(false);
       alert(data.message || "No payment link found");
     }
   }
 
   const handleContinue = () => {
     const newErrors = {};
-    const phoneRegex = /^(\+91[\-\s]?)?[0]?(91)?[789]\d{9}$/;
 
     if (!formData.fullName.trim()) {
       newErrors.fullName = "Full name is required";
@@ -93,8 +91,6 @@ export default function TermsOfServiceGate({
 
     if (!formData.phoneNumber.trim()) {
       newErrors.phoneNumber = "Phone number is required";
-    } else if (!phoneRegex.test(formData.phoneNumber)) {
-      newErrors.phoneNumber = "Please enter a valid phone number";
     }
     if (!formData.email.trim()) {
       newErrors.email = "Email is required";
@@ -136,8 +132,9 @@ export default function TermsOfServiceGate({
                 placeholder="Full Name"
                 value={formData.fullName}
                 onChange={handleInputChange}
-                className={`border rounded-lg px-3 py-2 text-sm w-full focus:!border-blue-500 focus:ring-blue-500 focus:outline-none ${errors.fullName ? "border-red-500" : ""
-                  }`}
+                className={`border rounded-lg px-3 py-2 text-sm w-full focus:!border-blue-500 focus:ring-blue-500 focus:outline-none ${
+                  errors.fullName ? "border-red-500" : ""
+                }`}
               />
               {errors.fullName && (
                 <p className="text-red-500 text-xs mt-1">{errors.fullName}</p>
@@ -148,11 +145,13 @@ export default function TermsOfServiceGate({
               <input
                 type="number"
                 name="phoneNumber"
+                max={22}
                 placeholder="Phone Number"
                 value={formData.phoneNumber}
                 onChange={handleInputChange}
-                className={`border rounded-lg px-3 py-2 text-sm w-full focus:!border-blue-500 focus:ring-blue-500 focus:outline-none ${errors.phoneNumber ? "border-red-500" : ""
-                  }`}
+                className={`border rounded-lg px-3 py-2 text-sm w-full focus:!border-blue-500 focus:ring-blue-500 focus:outline-none ${
+                  errors.phoneNumber ? "border-red-500" : ""
+                }`}
               />
               {errors.phoneNumber && (
                 <p className="text-red-500 text-xs mt-1">
@@ -169,8 +168,9 @@ export default function TermsOfServiceGate({
                 value={formData.email}
                 disabled
                 onChange={handleInputChange}
-                className={`border rounded-lg px-3 py-2 text-sm w-full focus:!border-blue-500 focus:ring-blue-500 focus:outline-none ${errors.email ? "border-red-500" : ""
-                  }`}
+                className={`border rounded-lg px-3 py-2 text-sm w-full focus:!border-blue-500 focus:ring-blue-500 focus:outline-none ${
+                  errors.email ? "border-red-500" : ""
+                }`}
               />
               {errors.email && (
                 <p className="text-red-500 text-xs mt-1">{errors.email}</p>

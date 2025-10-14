@@ -32,6 +32,9 @@ function ProductHome() {
                         <div class="mt-6 grow">
                             <div class="flex flex-wrap items-center gap-2">
                                 <span class="inline-flex items-center rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700 ring-1 ring-blue-100">LoRaWAN</span>
+
+                                <span class="inline-flex items-center rounded-full bg-purple-50 px-3 py-1 text-xs font-medium text-purple-700 ring-1 ring-purple-100">Cellular Gateway</span>
+
                                 <span class="inline-flex items-center rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700 ring-1 ring-emerald-100">10+ yr battery</span>
                                 <span class="inline-flex items-center rounded-full bg-slate-50 px-3 py-1 text-xs font-medium text-slate-700 ring-1 ring-slate-200">Compact IP-rated</span>
                             </div>

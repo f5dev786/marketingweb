@@ -133,7 +133,7 @@ export default function PricingCalculator() {
 
 
             const response = await fetch(
-                "https://7bq8f3v3-5232.usw3.devtunnels.ms/api/create-checkout-session",
+                "https://goldfish-app-y9ksu.ondigitalocean.app/api/create-checkout-session",
                 {
                     method: "POST",
                     headers: {

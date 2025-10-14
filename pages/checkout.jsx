@@ -41,7 +41,7 @@ function CheckOut() {
         };
     }, [token]);
 
-    return <div id="checkout" ref={checkoutRef}></div>;
+    return <div className="min-h-screen w-full bg-white flex flex-col pt-11"><div id="checkout" ref={checkoutRef} ></div></div>;
 }
 
 export default CheckOut

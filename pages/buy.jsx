@@ -110,7 +110,7 @@ export default function PricingCalculator() {
 
             let checkoutItems = [{
                 priceId: getSubscriptionPriceId(), // Sensor price ID
-                quantity: 1,
+                quantity: sites,
             }];
 
             // Add sensors if quantity > 0
@@ -129,18 +129,11 @@ export default function PricingCalculator() {
                 });
             }
 
-            // Add subscription if sites > 0
-            if (sites > 0) {
-                checkoutItems.push({
-                    priceId: "price_1S0TNjKCrHxXCFbB1UkURzr6", // replace with your real price ID
-                    quantity: sites, // quantity to purchase
-                },);
-            }
 
-            console.log("Checkout items:", checkoutItems);
+
 
             const response = await fetch(
-                "https://goldfish-app-y9ksu.ondigitalocean.app/api/create-checkout-session",
+                "https://7bq8f3v3-5232.usw3.devtunnels.ms/api/create-checkout-session",
                 {
                     method: "POST",
                     headers: {
@@ -149,6 +142,8 @@ export default function PricingCalculator() {
                     body: JSON.stringify(checkoutItems),
                 }
             );
+
+            console.log("response", response)
 
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);

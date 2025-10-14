@@ -24,7 +24,7 @@ function ProductHome() {
                         <div class="relative mx-auto w-full max-w-[520px]">
                             <div class="relative mx-auto aspect-[4/3] w-full overflow-hidden rounded-xl bg-gradient-to-b from-slate-50 to-white ring-1 ring-gray-100">
                                 <img src="https://f5dev786siteimages.s3.us-east-1.amazonaws.com/61.jpg" alt="Inovisense IS211 Temperature & Humidity Sensor"
-                                    class="absolute inset-0 h-full w-full  object-cover" />
+                                    class="absolute inset-0 h-full w-full  object-contain'" />
                             </div>
                         </div>
 
@@ -83,7 +83,7 @@ function ProductHome() {
                         <div class="relative mx-auto w-full max-w-[520px]">
                             <div class="relative mx-auto aspect-[4/3] w-full overflow-hidden rounded-xl bg-gradient-to-b from-slate-50 to-white ring-1 ring-gray-100">
                                 <img src="https://f5dev786siteimages.s3.us-east-1.amazonaws.com/62.jpg" alt="Inovisense IS411 CO₂ & Air Quality Monitor"
-                                    class="absolute inset-0 h-full w-full object-cover" />
+                                    class="absolute inset-0 h-full w-full  object-contain" />
                             </div>
                         </div>
 

@@ -2,10 +2,7 @@
 "use client";
 
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Autoplay } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
+import Image from "next/image";
 import c1 from "../../../public/assets/c1.png";
 import c2 from "../../../public/assets/c2.png";
 import c3 from "../../../public/assets/c3.png";
@@ -13,11 +10,22 @@ import c4 from "../../../public/assets/c4.jpeg";
 import c5 from "../../../public/assets/c5.jpeg";
 import c6 from "../../../public/assets/c6.jpeg";
 import c7 from "../../../public/assets/c7.png";
-import Image from "next/image";
+import c8 from "../../../public/assets/c8.png";
+
 const BrandSlider = () => {
-  const images = [c1, c2, c3, c4, c5, c6, c7];
+  const brandImages = [
+    { src: c1, alt: "Domino's" },
+    { src: c2, alt: "DUTCH BROS Cafe" },
+    { src: c3, alt: "WYNDHAM GRAND" },
+    { src: c4, alt: "Aarnoff INTERNATIONAL" },
+    { src: c5, alt: "VAL RESORTS" },
+    { src: c6, alt: "TACO BELL" },
+    { src: c7, alt: "DUNKIN'" },
+    { src: c8, alt: "NEW PIZZA'" },
+  ];
+
   return (
-    <div className="py-15 bg-white text-black ">
+    <div className="py-15 bg-white text-black">
       <div className="max-w-6xl mx-auto">
         <h2
           className="text-center text-2xl font-medium mb-12"
@@ -29,33 +37,22 @@ const BrandSlider = () => {
           Operators
         </h2>
 
-        <Swiper
-          modules={[Navigation, Autoplay]}
-          slidesPerView={5}
-          spaceBetween={30}
-          navigation
-          autoplay={{ delay: 3000, disableOnInteraction: false }}
-          loop
-          breakpoints={{
-            320: { slidesPerView: 2, spaceBetween: 20 },
-            640: { slidesPerView: 3, spaceBetween: 20 },
-            1024: { slidesPerView: 5, spaceBetween: 30 },
-          }}
-          className="max-w-6xl mx-auto"
-        >
-          {images.map((img, index) => (
-            <SwiperSlide key={index}>
+        {/* 品牌网格布局 */}
+        <div className="grid grid-cols-2 md:grid-cols-3  gap-8 items-center justify-center px-4">
+          {brandImages.map((brand, index) => (
+            <div key={index} className="flex items-center justify-center p-4">
               <Image
-                src={img}
-                alt={`Brand ${index}`}
-                className="mx-auto h-20 object-contain"
-                height={150}
+                src={brand.src}
+                alt={brand.alt}
+                className=" object-contain"
+                height={120}
                 width={250}
                 unoptimized
               />
-            </SwiperSlide>
+            </div>
           ))}
-        </Swiper>
+        </div>
+
       </div>
     </div>
   );

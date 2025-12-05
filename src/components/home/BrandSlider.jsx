@@ -13,12 +13,15 @@ import c7 from "../../../public/assets/c7.png";
 import c8 from "../../../public/assets/c8.png";
 import c9 from "../../../public/assets/c9.png";
 import c10 from "../../../public/assets/c10.png";
+import c11 from "../../../public/assets/c11.png";
+import c12 from "../../../public/assets/c12.png";
 
 const BrandSlider = () => {
   const brandImages = [
     { src: c1, alt: "Domino's" },
-    { src: c2, alt: "DUTCH BROS Cafe" },
     { src: c7, alt: "DUNKIN'" },
+    { src: c2, alt: "DUTCH BROS Cafe" },
+
     { src: c3, alt: "WYNDHAM GRAND" },
     { src: c4, alt: "Aarnoff INTERNATIONAL" },
     { src: c5, alt: "VAL RESORTS" },
@@ -26,6 +29,9 @@ const BrandSlider = () => {
     { src: c10, alt: "DESI BROTHER" },
     { src: c8, alt: "NEW PIZZA'" },
     { src: c9, alt: "IHOP" },
+    { src: c11, alt: "IHOP" }, 
+
+    { src: c12, alt: "IHOP" },
   ];
 
   return (

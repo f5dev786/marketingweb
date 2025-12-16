@@ -3,32 +3,47 @@ import Image from "next/image";
 import customer from "../../../public/assets/customer-centric.png";
 import reliable from "../../../public/assets/reliability.png";
 import effortless from "../../../public/assets/effortless.png";
+import {
+  FaBolt,
+  FaBullseye,
+  FaGlobe,
+  FaHandshake,
+  FaStar,
+  FaUsers,
+} from "react-icons/fa";
+import FeatureCard from "./FeatureCard";
 
 const features = [
   {
-    icon: customer,
-    title: "Customer – Centric",
+    title: "Customer Cards",
     description:
-      "We listen first, then build. Your needs guide everything we do, ensuring that our solutions are truly aligned with your goals.",
+      "We know that we look true with guide everything we do, meaning solutions truly aligned with your goals.",
+    icon: <FaUsers   className="text-blue-500" size={28} />,
+    color: "from-blue-500 to-blue-600",
+    bgColor: "bg-gradient-to-br from-blue-50 to-blue-100",
   },
   {
-    icon: reliable,
-    title: "Reliable",
+    title: "Website",
     description:
-      "You can count on us. We deliver on time, with consistent quality and dependable support at every step.",
+      "You can enter now. We deliver on time with assistance solely and dependable support at every step.",
+    icon: <FaGlobe className="text-green-500" size={28} />,
+    color: "from-green-500 to-green-600",
+    bgColor: "bg-gradient-to-br from-green-50 to-green-100",
   },
   {
-    icon: effortless,
-    title: "Effortless",
+    title: "Effective",
     description:
-      "We create solutions that work smoothly and intuitively, removing barriers so you can focus on what matters most. At Inovisense, we don’t just deliver services — we build lasting partnerships based on trust, clarity, and results.",
+      "Adjusted the work remotely and instantly, removing barriers to you can focus on what matters next.",
+    icon: <FaBolt className="text-purple-500" size={28} />,
+    color: "from-purple-500 to-purple-600",
+    bgColor: "bg-gradient-to-br from-purple-50 to-purple-100",
   },
 ];
 
 export default function WhyChooseSection() {
   return (
     <section
-      className="bg-[#0D1120] text-white   p-16"
+      className=" text-white   p-16"
       style={{
         fontFamily: "'Poppins', Arial, Helvetica, sans-serif",
       }}
@@ -40,38 +55,39 @@ export default function WhyChooseSection() {
         </div>
 
         {/* heading */}
-        <h2 className="text-xl md:text-5xl  mb-12">
-          At Inovisense, we make innovation reliable, effortless, <br /> and
-          centered around you.
-        </h2>
+        <div className="text-center mb-12 md:mb-16">
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4 md:mb-6">
+            <span className="block">Built Different. Built Better.</span>
+            {/* <span className="block text-blue-600 mt-2">Built Better.</span> */}
+          </h1>
+
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8 md:mb-10">
+            We don't just delete services — we build lasting partnerships based
+            on trust, clarity, and results.
+          </p>
+
+          <div className="flex justify-center items-center space-x-4 md:space-x-8 mb-6">
+            <div className="flex items-center text-blue-600">
+              <FaHandshake className="mr-2" />
+              <span className="text-sm md:text-base">Trust</span>
+            </div>
+            <div className="flex items-center text-blue-600">
+              <FaBullseye className="mr-2" />
+              <span className="text-sm md:text-base">Clarity</span>
+            </div>
+            <div className="flex items-center text-blue-600">
+              <FaStar className="mr-2" />
+              <span className="text-sm md:text-base">Results</span>
+            </div>
+          </div>
+
+          <div className="h-1 w-24 md:w-32 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
+        </div>
 
         {/* cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {features.map((feature, index) => (
-            <div
-              key={index}
-              className="border border-blue-500 rounded-lg p-9 bg-[#0D1120] flex flex-col items-center text-center pb-12"
-            >
-              {/* icon */}
-              <div className="mb-4">
-                <Image
-                  src={feature.icon}
-                  alt={feature.title}
-                  width={60}
-                  unoptimized
-                  height={60}
-                  className="object-contain"
-                />
-              </div>
-
-              {/* title */}
-              <h3 className="text-[24px] mb-3">{feature.title}</h3>
-
-              {/* description */}
-              <p className="text text-gray-300 font-light">
-                {feature.description}
-              </p>
-            </div>
+            <FeatureCard key={index} {...feature} />
           ))}
         </div>
       </div>

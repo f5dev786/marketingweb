@@ -5,7 +5,7 @@ import FeatureCard from "./FeatureCard";
 export default function WhyChooseSection() {
   return (
     <section
-      className=" text-white   p-16"
+      className=" text-white bg-white p-16"
       style={{
         fontFamily: "'Poppins', Arial, Helvetica, sans-serif",
       }}

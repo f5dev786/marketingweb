@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import { FiPhone, FiMail } from "react-icons/fi";
-
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     fullName: "",
@@ -17,7 +18,17 @@ export default function ContactPage() {
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const isValidUSCanadaPhone = (phone) => {
+    if (!phone) return false;
 
+    // Remove spaces, (), -
+    const cleaned = phone.replace(/[^\d+]/g, "");
+
+    // Must start with +1 and have 10 digits after country code
+    const regex = /^\+1\d{10}$/;
+
+    return regex.test(cleaned);
+  };
   const validate = () => {
     const newErrors = {};
 
@@ -28,8 +39,11 @@ export default function ContactPage() {
     if (!formData.email.trim()) newErrors.email = "Email is required.";
     else if (!/\S+@\S+\.\S+/.test(formData.email))
       newErrors.email = "Invalid email format.";
-    if (!formData.phoneNumber.trim())
+    if (!formData.phoneNumber) {
       newErrors.phoneNumber = "Phone Number is required.";
+    } else if (!isValidUSCanadaPhone(formData.phoneNumber)) {
+      newErrors.phoneNumber = "Enter a valid US or Canada phone number.";
+    }
     if (!formData.note.trim()) newErrors.note = "Message is required.";
 
     setErrors(newErrors);
@@ -75,6 +89,11 @@ export default function ContactPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
     setErrors({ ...errors, [e.target.name]: "" });
   };
+  const fullNameRef = useRef(null);
+  const sensorsRef = useRef(null);
+  const emailRef = useRef(null);
+  const phoneRef = useRef(null);
+  const noteRef = useRef(null);
 
   return (
     <div className=" bg-white text-black px-4 md:px-12 py-10">
@@ -131,7 +150,7 @@ export default function ContactPage() {
         </div>
 
         {/* Right Side - Form */}
-        <div className="max-w-md mx-auto bg-white rounded-xl shadow-lg p-6 w-full">
+        <div className="max-w-md mx-auto bg-white border-2 border-gray-200 rounded-xl shadow-lg p-6 w-full">
           {isSubmitted ? (
             <h3 className="text-xl text-center font-semibold text-green-600 py-16">
               🎉 Thank you! We'll get back to you shortly.
@@ -145,78 +164,135 @@ export default function ContactPage() {
                 Fill out the form below to get started!
               </p>
 
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <div className="space-y-5">
                 {/* Full Name */}
-                <div className="relative">
+                <div
+                  className="relative cursor-text"
+                  onClick={() => fullNameRef.current?.focus()}
+                >
                   <input
+                    ref={fullNameRef}
                     type="text"
                     name="fullName"
                     value={formData.fullName}
                     onChange={handleChange}
                     placeholder=" "
-                    className="peer w-full border-b border-gray-300 py-2 focus:border-blue-500 focus:outline-none"
+                    className="peer w-full border-b border-gray-300 py-2 focus:border-blue-500 focus:outline-none bg-transparent"
                   />
-                  <label className="absolute left-0 top-2 text-gray-400 text-sm peer-placeholder-shown:top-2 peer-placeholder-shown:text-sm peer-focus:-top-3 peer-focus:text-xs peer-focus:text-blue-500 transition-all">
+
+                  <label
+                    className="pointer-events-none absolute left-0 -top-3 text-xs text-gray-500 transition-all
+    peer-placeholder-shown:top-2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-400
+    peer-focus:-top-3 peer-focus:text-xs peer-focus:text-blue-500"
+                  >
                     Full Name*
                   </label>
                   {errors.fullName && (
                     <p className="text-red-500 text-xs mt-1">
-                      {errors.fullName}
+                      {" "}
+                      {errors.fullName}{" "}
                     </p>
                   )}
                 </div>
 
                 {/* Sensors Count */}
-                <div className="relative">
+                <div
+                  className="relative cursor-text"
+                  onClick={() => sensorsRef.current?.focus()}
+                >
                   <input
+                    ref={sensorsRef}
                     type="number"
                     name="numberOfRefrigerators"
                     value={formData.numberOfRefrigerators}
                     onChange={handleChange}
                     placeholder=" "
-                    className="peer w-full border-b border-gray-300 py-2 focus:border-blue-500 focus:outline-none"
+                    className="peer w-full border-b border-gray-300 py-2 focus:border-blue-500 focus:outline-none bg-transparent"
                   />
-                  <label className="absolute left-0 top-2 text-gray-400 text-sm peer-focus:-top-3 peer-focus:text-xs peer-focus:text-blue-500 transition-all">
+
+                  <label
+                    className="pointer-events-none absolute left-0 -top-3 text-xs text-gray-500 transition-all
+    peer-placeholder-shown:top-2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-400
+    peer-focus:-top-3 peer-focus:text-xs peer-focus:text-blue-500"
+                  >
                     How many sensors are in use?*
                   </label>
                   {errors.numberOfRefrigerators && (
                     <p className="text-red-500 text-xs mt-1">
-                      {errors.numberOfRefrigerators}
+                      {" "}
+                      {errors.numberOfRefrigerators}{" "}
                     </p>
                   )}
                 </div>
 
                 {/* Email */}
-                <div className="relative">
+                <div
+                  className="relative cursor-text"
+                  onClick={() => emailRef.current?.focus()}
+                >
                   <input
+                    ref={emailRef}
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
                     placeholder=" "
-                    className="peer w-full border-b border-gray-300 py-2 focus:border-blue-500 focus:outline-none"
+                    className="peer w-full border-b border-gray-300 py-2 focus:border-blue-500 focus:outline-none bg-transparent"
                   />
-                  <label className="absolute left-0 top-2 text-gray-400 text-sm peer-focus:-top-3 peer-focus:text-xs peer-focus:text-blue-500 transition-all">
+
+                  <label
+                    className="pointer-events-none absolute left-0 -top-3 text-xs text-gray-500 transition-all
+    peer-placeholder-shown:top-2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-400
+    peer-focus:-top-3 peer-focus:text-xs peer-focus:text-blue-500"
+                  >
                     Email*
                   </label>
                   {errors.email && (
-                    <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+                    <p className="text-red-500 text-xs mt-1">
+                      {" "}
+                      {errors.email}{" "}
+                    </p>
                   )}
                 </div>
 
                 {/* Phone */}
-                <div className="relative">
-                  <input
-                    type="text"
-                    name="phoneNumber"
+                <div className="relative cursor-text">
+                  <PhoneInput
+                    country={"us"}
+                    onlyCountries={["us", "ca"]}
+                    countryCodeEditable={false}
                     value={formData.phoneNumber}
-                    onChange={handleChange}
-                    placeholder=" "
-                    className="peer w-full border-b border-gray-300 py-2 focus:border-blue-500 focus:outline-none"
+                    onChange={(value, country, e, formattedValue) => {
+                      setFormData({
+                        ...formData,
+                        phoneNumber: formattedValue, // (201) 555-0123
+                      });
+                    }}
+                    inputStyle={{
+                      width: "100%",
+                      border: "none",
+                      borderBottom: "1px solid #d1d5db",
+                      borderRadius: "0",
+                      paddingLeft: "52px",
+                      paddingBottom: "8px",
+                      fontSize: "14px",
+                    }}
+                    buttonStyle={{
+                      border: "none",
+                      background: "transparent",
+                    }}
+                    containerStyle={{
+                      width: "100%",
+                    }}
+                    dropdownStyle={{
+                      zIndex: 50,
+                    }}
                   />
-                  <label className="absolute left-0 top-2 text-gray-400 text-sm peer-focus:-top-3 peer-focus:text-xs peer-focus:text-blue-500 transition-all">
+
+                  <label className="absolute left-0 -top-3 text-xs text-gray-500">
                     Phone Number*
                   </label>
+
                   {errors.phoneNumber && (
                     <p className="text-red-500 text-xs mt-1">
                       {errors.phoneNumber}
@@ -225,16 +301,25 @@ export default function ContactPage() {
                 </div>
 
                 {/* Notes */}
-                <div className="relative">
+                <div
+                  className="relative cursor-text"
+                  onClick={() => noteRef.current?.focus()}
+                >
                   <textarea
+                    ref={noteRef}
                     name="note"
                     value={formData.note}
                     onChange={handleChange}
                     placeholder=" "
                     rows={3}
-                    className="peer w-full border-b border-gray-300 py-2 focus:border-blue-500 focus:outline-none resize-none"
+                    className="peer w-full border-b border-gray-300 py-2 focus:border-blue-500 focus:outline-none resize-none bg-transparent"
                   />
-                  <label className="absolute left-0 top-2 text-gray-400 text-sm peer-focus:-top-3 peer-focus:text-xs peer-focus:text-blue-500 transition-all">
+
+                  <label
+                    className="pointer-events-none absolute left-0 -top-3 text-xs text-gray-500 transition-all
+    peer-placeholder-shown:top-2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-400
+    peer-focus:-top-3 peer-focus:text-xs peer-focus:text-blue-500"
+                  >
                     Any specific features you're interested in?
                   </label>
                 </div>
@@ -243,11 +328,12 @@ export default function ContactPage() {
                 <button
                   type="submit"
                   disabled={loading}
+                  onClick={handleSubmit}
                   className="w-full bg-blue-700 text-white py-3 rounded-lg font-semibold hover:bg-blue-800 transition"
                 >
                   {loading ? "Submitting..." : "OK"}
                 </button>
-              </form>
+              </div>
             </>
           )}
         </div>

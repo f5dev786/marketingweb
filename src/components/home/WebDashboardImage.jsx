@@ -14,7 +14,7 @@ function WebDashboardImage() {
 
   return (
     <>
-      <div className="bg-white pt-24 text-black">
+      <div className="bg-white pt-12 text-black">
         <div className="max-w-6xl mx-auto px-4 flex flex-col items-center">
           {/* Image with border */}
           <div className="border-[6px] border-black rounded-2xl shadow-xl">

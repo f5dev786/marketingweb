@@ -1,44 +1,6 @@
 "use client";
-import Image from "next/image";
-import customer from "../../../public/assets/customer-centric.png";
-import reliable from "../../../public/assets/reliability.png";
-import effortless from "../../../public/assets/effortless.png";
-import {
-  FaBolt,
-  FaBullseye,
-  FaGlobe,
-  FaHandshake,
-  FaStar,
-  FaUsers,
-} from "react-icons/fa";
+import { FaBullseye, FaHandshake, FaStar } from "react-icons/fa";
 import FeatureCard from "./FeatureCard";
-
-const features = [
-  {
-    title: "Customer Cards",
-    description:
-      "We know that we look true with guide everything we do, meaning solutions truly aligned with your goals.",
-    icon: <FaUsers   className="text-blue-500" size={28} />,
-    color: "from-blue-500 to-blue-600",
-    bgColor: "bg-gradient-to-br from-blue-50 to-blue-100",
-  },
-  {
-    title: "Website",
-    description:
-      "You can enter now. We deliver on time with assistance solely and dependable support at every step.",
-    icon: <FaGlobe className="text-green-500" size={28} />,
-    color: "from-green-500 to-green-600",
-    bgColor: "bg-gradient-to-br from-green-50 to-green-100",
-  },
-  {
-    title: "Effective",
-    description:
-      "Adjusted the work remotely and instantly, removing barriers to you can focus on what matters next.",
-    icon: <FaBolt className="text-purple-500" size={28} />,
-    color: "from-purple-500 to-purple-600",
-    bgColor: "bg-gradient-to-br from-purple-50 to-purple-100",
-  },
-];
 
 export default function WhyChooseSection() {
   return (
@@ -55,7 +17,7 @@ export default function WhyChooseSection() {
         </div>
 
         {/* heading */}
-        <div className="text-center mb-12 md:mb-16">
+        <div className="text-center ">
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4 md:mb-6">
             <span className="block">Built Different. Built Better.</span>
             {/* <span className="block text-blue-600 mt-2">Built Better.</span> */}
@@ -84,12 +46,7 @@ export default function WhyChooseSection() {
           <div className="h-1 w-24 md:w-32 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full"></div>
         </div>
 
-        {/* cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-          {features.map((feature, index) => (
-            <FeatureCard key={index} {...feature} />
-          ))}
-        </div>
+        <FeatureCard />
       </div>
     </section>
   );

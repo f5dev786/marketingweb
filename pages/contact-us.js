@@ -131,102 +131,122 @@ export default function ContactPage() {
         </div>
 
         {/* Right Side - Form */}
-        <div className="border-2 border-dotted border-blue-400 rounded-xl p-6">
+        <div className="max-w-md mx-auto bg-white rounded-xl shadow-lg p-6 w-full">
           {isSubmitted ? (
-            <h3 className="text-2xl text-center font-bold text-green-600 py-20">
-              {" 🎉 Thank you! We'll get back to you shortly."}
+            <h3 className="text-xl text-center font-semibold text-green-600 py-16">
+              🎉 Thank you! We'll get back to you shortly.
             </h3>
           ) : (
             <>
-              <h3 className="text-xl md:text-2xl text-center  text-blue-400 mb-6">
-                Request a Demo and Transform Your Operations Today.
+              <h3 className="text-2xl font-semibold mb-1">
+                Request Your Demo<span className="text-red-500">*</span>
               </h3>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid  gap-4">
-                  <div>
-                    <input
-                      type="text"
-                      name="fullName"
-                      placeholder="Full Name*"
-                      value={formData.fullName}
-                      onChange={handleChange}
-                      className="w-full border px-4 py-2 rounded focus:!border-blue-500 focus:ring-blue-500 focus:outline-none"
-                    />
-                    {errors.fullName && (
-                      <p className="text-red-500 text-sm mt-1">
-                        {errors.fullName}
-                      </p>
-                    )}
-                  </div>
+              <p className="text-sm text-gray-500 mb-6">
+                Fill out the form below to get started!
+              </p>
+
+              <form onSubmit={handleSubmit} className="space-y-5">
+                {/* Full Name */}
+                <div className="relative">
+                  <input
+                    type="text"
+                    name="fullName"
+                    value={formData.fullName}
+                    onChange={handleChange}
+                    placeholder=" "
+                    className="peer w-full border-b border-gray-300 py-2 focus:border-blue-500 focus:outline-none"
+                  />
+                  <label className="absolute left-0 top-2 text-gray-400 text-sm peer-placeholder-shown:top-2 peer-placeholder-shown:text-sm peer-focus:-top-3 peer-focus:text-xs peer-focus:text-blue-500 transition-all">
+                    Full Name*
+                  </label>
+                  {errors.fullName && (
+                    <p className="text-red-500 text-xs mt-1">
+                      {errors.fullName}
+                    </p>
+                  )}
                 </div>
-                <div>
+
+                {/* Sensors Count */}
+                <div className="relative">
                   <input
                     type="number"
                     name="numberOfRefrigerators"
-                    placeholder="How many sensors are currently in use by your business?*"
                     value={formData.numberOfRefrigerators}
                     onChange={handleChange}
-                    className="w-full border px-4 py-2 rounded focus:border-blue-500  focus:outline-none focus:ring-blue-500"
+                    placeholder=" "
+                    className="peer w-full border-b border-gray-300 py-2 focus:border-blue-500 focus:outline-none"
                   />
+                  <label className="absolute left-0 top-2 text-gray-400 text-sm peer-focus:-top-3 peer-focus:text-xs peer-focus:text-blue-500 transition-all">
+                    How many sensors are in use?*
+                  </label>
                   {errors.numberOfRefrigerators && (
-                    <p className="text-red-500 text-sm mt-1">
+                    <p className="text-red-500 text-xs mt-1">
                       {errors.numberOfRefrigerators}
                     </p>
                   )}
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="Email Address*"
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="w-full border px-4 py-2 rounded focus:border-blue-500 focus:ring-blue-500 focus:outline-none"
-                    />
-                    {errors.email && (
-                      <p className="text-red-500 text-sm mt-1">
-                        {errors.email}
-                      </p>
-                    )}
-                  </div>
-                  <div>
-                    <input
-                      type="text"
-                      name="phoneNumber"
-                      placeholder="Phone Number*"
-                      value={formData.phoneNumber}
-                      onChange={handleChange}
-                      className="w-full border px-4 py-2 rounded focus:border-blue-500 focus:ring-blue-500 focus:outline-none"
-                    />
-                    {errors.phoneNumber && (
-                      <p className="text-red-500 text-sm mt-1">
-                        {errors.phoneNumber}
-                      </p>
-                    )}
-                  </div>
-                </div>
-                <div>
-                  <textarea
-                    name="note"
-                    placeholder="Any specific features you're interested in?"
-                    value={formData.note}
+
+                {/* Email */}
+                <div className="relative">
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
                     onChange={handleChange}
-                    className="w-full border px-4 py-2 rounded h-24 focus:border-blue-500 focus:ring-blue-500 focus:outline-none"
+                    placeholder=" "
+                    className="peer w-full border-b border-gray-300 py-2 focus:border-blue-500 focus:outline-none"
                   />
-                  {errors.note && (
-                    <p className="text-red-500 text-sm mt-1">{errors.note}</p>
+                  <label className="absolute left-0 top-2 text-gray-400 text-sm peer-focus:-top-3 peer-focus:text-xs peer-focus:text-blue-500 transition-all">
+                    Email*
+                  </label>
+                  {errors.email && (
+                    <p className="text-red-500 text-xs mt-1">{errors.email}</p>
                   )}
                 </div>
-                <div className="text-center">
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="bg-blue-500 text-white px-8 py-2 rounded hover:bg-blue-600"
-                  >
-                    {loading ? "Submitting..." : "Submit"}
-                  </button>
+
+                {/* Phone */}
+                <div className="relative">
+                  <input
+                    type="text"
+                    name="phoneNumber"
+                    value={formData.phoneNumber}
+                    onChange={handleChange}
+                    placeholder=" "
+                    className="peer w-full border-b border-gray-300 py-2 focus:border-blue-500 focus:outline-none"
+                  />
+                  <label className="absolute left-0 top-2 text-gray-400 text-sm peer-focus:-top-3 peer-focus:text-xs peer-focus:text-blue-500 transition-all">
+                    Phone Number*
+                  </label>
+                  {errors.phoneNumber && (
+                    <p className="text-red-500 text-xs mt-1">
+                      {errors.phoneNumber}
+                    </p>
+                  )}
                 </div>
+
+                {/* Notes */}
+                <div className="relative">
+                  <textarea
+                    name="note"
+                    value={formData.note}
+                    onChange={handleChange}
+                    placeholder=" "
+                    rows={3}
+                    className="peer w-full border-b border-gray-300 py-2 focus:border-blue-500 focus:outline-none resize-none"
+                  />
+                  <label className="absolute left-0 top-2 text-gray-400 text-sm peer-focus:-top-3 peer-focus:text-xs peer-focus:text-blue-500 transition-all">
+                    Any specific features you're interested in?
+                  </label>
+                </div>
+
+                {/* Submit */}
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full bg-blue-700 text-white py-3 rounded-lg font-semibold hover:bg-blue-800 transition"
+                >
+                  {loading ? "Submitting..." : "OK"}
+                </button>
               </form>
             </>
           )}

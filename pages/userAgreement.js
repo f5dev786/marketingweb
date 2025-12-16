@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect,useState } from "react";
 import LegalPage from "./privacy-policy";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
@@ -22,7 +22,7 @@ export default function TermsOfServiceGate({
     if (email) {
       setFormData({ ...formData, email: email });
     }
-  }, [email]);
+  }, [email,formData]);
   const [errors, setErrors] = useState({});
 
   async function getClientIP() {

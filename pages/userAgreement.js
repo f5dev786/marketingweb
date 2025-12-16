@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import LegalPage from "./privacy-policy";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";

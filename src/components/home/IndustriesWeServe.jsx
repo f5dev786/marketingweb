@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 
-import healthcare from "../../../public/assets/health.png";
+import healthcare from "../../../public/assets/healthcare.png";
 import pharmacy from "../../../public/assets/pharmacy.png";
 import education from "../../../public/assets/education.png";
 import food from "../../../public/assets/food.png";
@@ -12,33 +12,33 @@ import labs from "../../../public/assets/science.png";
 const industries = [
   {
     icon: healthcare,
-    title: "Healthcare",
+    title: "Cold Storage & Distribution",
     description:
-      "Providing hospitals and clinics with specialized monitoring solutions that ensure patient and staff safety.",
+      "Monitoring warehouses, distribution centers, and reefer storage with multi-site visibility and real-time alerts — helping logistics teams keep products within spec from dock to delivery.",
   },
   {
     icon: pharmacy,
-    title: "Pharmacies",
+    title: "Grocery Stores & Supermarkets",
     description:
-      "Streamline pharmaceutical storage with consistent, reliable monitoring.",
+      "Helping grocery stores safeguard meat, dairy, frozen, and produce cases with continuous monitoring and instant alerts — preventing spoiled inventory and supporting HACCP and food safety compliance.",
   },
   {
     icon: education,
-    title: "Education",
+    title: "School Cafeterias & Child Nutrition",
     description:
-      "Optimize learning environments by maintaining healthy air quality in schools and universities.",
+      "Supporting K-12 and college food programs by monitoring coolers, freezers, and warmers so meals stay safe, logs are automatic, and staff can focus on students instead of manual temperature checks.",
   },
   {
     icon: food,
-    title: "Food Services",
+    title: "Restaurants",   
     description:
-      "Protect food storage and distribution operations with precise environmental controls.",
+      "Providing restaurants with always-on temperature monitoring to protect ingredients, prep coolers, and walk-ins — reducing food waste and helping you pass health inspections with confidence",
   },
   {
     icon: labs,
-    title: "Life Sciences & Laboratories",
+    title: "Food Manufacturing & Processing",
     description:
-      "Supporting laboratories with controlled monitoring for sensitive research environments.",
+      "Protecting raw materials, in-process storage, and finished-goods warehouses with precise temperature and humidity monitoring to reduce batch loss, support audits, and maintain strict quality standards.",
   },
 ];
 
@@ -59,12 +59,12 @@ const IndustriesWeServe = () => {
               key={index}
               className="group bg-white rounded-xl px-3 py-5 shadow-md text-center max-w-[260px] transition-all duration-300 hover:shadow-2xl"
             >
-              <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-blue-100 flex items-center justify-center transition-all duration-300 group-hover:bg-blue-500">
+              <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-blue-100 flex items-center justify-center transition-all duration-300 ">
                 <Image
                   src={industry.icon}
                   alt={industry.title}
                   unoptimized
-                  className="w-12 h-12 object-contain transition-all duration-300 group-hover:brightness-0 group-hover:invert"
+                  className="w-12 h-12 object-contain transition-all duration-300 "
                 />
               </div>
 

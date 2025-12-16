@@ -1,12 +1,12 @@
 import { FiHome, FiBell, FiLock } from "react-icons/fi";
 import { TbDeviceMobileVibration } from "react-icons/tb";
-import { IoMdCart } from "react-icons/io";
 
 import Image from "next/image";
 import "swiper/css/navigation";
 import { useState } from "react";
 import { RxCross2 } from "react-icons/rx";
 import Link from "next/link";
+import { FaPhoneAlt } from "react-icons/fa";
 
 export default function WhyInovisenseSection() {
   const [isOpen, setIsOpen] = useState(false);
@@ -97,18 +97,18 @@ export default function WhyInovisenseSection() {
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mt-8">
-            <Link href={"/buy"} replace>
-              <button className="group border border-gray-300 gap-2 px-4 py-2 rounded-md flex items-center hover:text-white hover:bg-black transition-colors">
-                Buy Now
-                <IoMdCart className="text-2xl group-hover:animate-bounce transition-all" />
-              </button>
-            </Link>
             <button
               className="bg-blue-500 text-white px-4 py-3 hover:bg-gray-800 rounded-md"
               onClick={() => setIsOpen(true)}
             >
               Request a Demo
             </button>
+            <Link href="/contact-us">
+              <button className="group flex items-center px-6 py-3 text-sm  border border-black rounded-md hover:bg-black hover:text-white bg-white transition">
+                Contact Us
+                <FaPhoneAlt className="ml-2 text-sm transition-transform duration-300 group-hover:animate-bounce" />
+              </button>
+            </Link>
           </div>
         </div>
 

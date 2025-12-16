@@ -87,10 +87,9 @@ function TempDevice() {
               >
                 Request a Demo
               </button>
-              <Link href={"/buy"} replace>
-                <button className="border border-gray-300 px-5 py-2 rounded-md flex items-center gap-2 hover:bg-black hover:text-white text-black transition">
-                  Buy Now
-                  <IoMdCart className="text-xl" />
+              <Link href="/contact-us">
+                <button className="border border-gray-300 px-5 py-2 rounded-md flex items-center gap-2 hover:bg-black text-black hover:text-white transition">
+                  Contact Us
                 </button>
               </Link>
             </div>
@@ -204,10 +203,9 @@ function TempDevice() {
                 >
                   Request a Demo
                 </button>
-                <Link href={"/buy"} replace>
-                  <button className="border border-gray-300 px-5 py-2 rounded-md flex items-center gap-2 hover:bg-black hover:text-white transition">
-                    Buy Now
-                    <IoMdCart className="text-xl" />
+                <Link href="/contact-us">
+                  <button className="border border-gray-300 px-5 py-2 rounded-md flex items-center gap-2 hover:bg-white text-white hover:text-black transition">
+                    Contact Us
                   </button>
                 </Link>
               </div>

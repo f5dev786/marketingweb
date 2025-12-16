@@ -75,7 +75,7 @@ function ProductHome() {
 
 
                         <div class="mt-6 flex flex-wrap gap-3">
-                            <a href="/buy" class="inline-flex items-center justify-center rounded-xl bg-blue-600 px-4 py-2 text-white shadow hover:bg-blue-700">Buy IS211</a>
+                            {/* <a href="/buy" class="inline-flex items-center justify-center rounded-xl bg-blue-600 px-4 py-2 text-white shadow hover:bg-blue-700">Buy IS211</a> */}
                             <a href="/contact-us" class="inline-flex items-center justify-center rounded-xl border border-gray-300 px-4 py-2 text-gray-800 hover:bg-gray-50">Talk to Sales</a>
                         </div>
                     </article>

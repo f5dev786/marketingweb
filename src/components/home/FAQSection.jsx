@@ -66,8 +66,6 @@ const FAQSection = () => {
     setOpenIndex((prevIndex) => (prevIndex === index ? null : index));
   };
 
-  console.log("openIndex", openIndex);
-
   return (
     <section className="py-15 bg-white text-black text-center">
       <div className="max-w-4xl mx-auto px-4">
@@ -86,18 +84,16 @@ const FAQSection = () => {
               onClick={() => toggleFAQ(index)}
             >
               <div
-                className={`flex justify-between items-center p-4 group-hover:text-blue-500 ${
-                  openIndex === index
+                className={`flex justify-between items-center p-4 group-hover:text-blue-500 ${openIndex === index
                     ? "text-blue-500 bg-gray-100 rounded-t-xl"
                     : ""
-                }`}
+                  }`}
               >
                 <h3
-                  className={` text-base group-hover:text-blue-500  ${
-                    openIndex === index
+                  className={` text-base group-hover:text-blue-500  ${openIndex === index
                       ? "text-blue-500 bg-gray-100  "
                       : "text-gray-900"
-                  }`}
+                    }`}
                 >
                   {item.question}
                 </h3>

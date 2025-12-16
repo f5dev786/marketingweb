@@ -153,7 +153,7 @@ export default function ContactPage() {
         <div className="max-w-md mx-auto bg-white border-2 border-gray-200 rounded-xl shadow-lg p-6 w-full">
           {isSubmitted ? (
             <h3 className="text-xl text-center font-semibold text-green-600 py-16">
-              🎉 Thank you! We'll get back to you shortly.
+              🎉 Thank you! We&apos;ll get back to you shortly.
             </h3>
           ) : (
             <>
@@ -320,7 +320,7 @@ export default function ContactPage() {
     peer-placeholder-shown:top-2 peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-400
     peer-focus:-top-3 peer-focus:text-xs peer-focus:text-blue-500"
                   >
-                    Any specific features you're interested in?
+                    Any specific features you&apos;re interested in?
                   </label>
                 </div>
 

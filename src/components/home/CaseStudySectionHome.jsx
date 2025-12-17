@@ -254,7 +254,7 @@ function CaseStudySectionHome() {
 
                 <div class="mt-6">
                   <a
-                    href="/request-demo"
+                    href="/contact-us"
                     class="block w-full rounded-xl bg-white border border-gray-300 px-5 py-3 text-center text-sm font-semibold text-gray-900 hover:bg-gray-50"
                   >
                     Get Pricing for Your Site

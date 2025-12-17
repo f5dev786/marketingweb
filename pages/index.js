@@ -10,6 +10,7 @@ import WhyChooseSection from "@/src/components/home/WhyChooseSection";
 import WhyInovisenseSection from "@/src/components/home/WhyInovisenseSection";
 import Product from "./products";
 import ProductHome from "@/src/components/home/ProductHome";
+import CaseStudySectionHome from "@/src/components/home/CaseStudySectionHome";
 
 export default function HomePage() {
   return (
@@ -26,12 +27,17 @@ export default function HomePage() {
       <div id="why-choose">
         <WhyChooseSection />
       </div>
+      <div>
+        <CaseStudySectionHome />
+      </div>
       <div id="web-dashboard">
         <WebDashboardImage />
       </div>
+
       <div>
         <MonitoringDashboard />
       </div>
+
       <div
         id="why-inovisense"
         style={{

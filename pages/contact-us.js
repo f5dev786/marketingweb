@@ -44,7 +44,6 @@ export default function ContactPage() {
     } else if (!isValidUSCanadaPhone(formData.phoneNumber)) {
       newErrors.phoneNumber = "Enter a valid US or Canada phone number.";
     }
-    if (!formData.note.trim()) newErrors.note = "Message is required.";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -329,7 +328,7 @@ export default function ContactPage() {
                   type="submit"
                   disabled={loading}
                   onClick={handleSubmit}
-                  className="w-full bg-blue-700 text-white py-3 rounded-lg font-semibold hover:bg-blue-800 transition"
+                  className="w-full bg-blue-700 text-white py-3 rounded-lg font-semibold hover:bg-blue-800 transition cursor-pointer"
                 >
                   {loading ? "Submitting..." : "OK"}
                 </button>

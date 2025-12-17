@@ -78,7 +78,8 @@ export default function RotatingSection() {
             </button>
             <Link href={"/products"}>
               <button className="bg-gray-800  hover:bg-blue-500 text-white px-4 py-3 rounded-md">
-             Discover our Sensors
+                        Read the Case Study
+
               </button>
             </Link>
           </div>
